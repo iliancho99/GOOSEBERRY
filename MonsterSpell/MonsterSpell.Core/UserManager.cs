@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -32,7 +33,7 @@ namespace MonsterSpell.Core
             user.Password = GetMD5(user.Password);
             var userExists = users.AsQueryable<User>()
                 .Any(x => x.Username == user.Username && x.Password == user.Password);
-            if (!userExists)
+            if (userExists)
             {
                 user.IsLoggedIn = true;
             }
@@ -44,6 +45,8 @@ namespace MonsterSpell.Core
 
         public static void Register(User user)
         {
+            Debug.Assert(users != null);
+
             if (users == null)
                 throw new InvalidOperationException("Please set user collection first!");
             if (user == null)

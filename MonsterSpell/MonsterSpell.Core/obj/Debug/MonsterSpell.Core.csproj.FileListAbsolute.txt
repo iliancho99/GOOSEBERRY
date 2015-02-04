@@ -1,13 +1,8 @@
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.dll
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.pdb
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MongoDB.Bson.dll
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MongoDB.Driver.dll
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MongoDB.Bson.xml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MongoDB.Driver.xml
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.dll
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.pdb
-<<<<<<< HEAD
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.csprojResolveAssemblyReference.cache
-=======
-C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.dll
-C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.pdb
-C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.csprojResolveAssemblyReference.cache
-C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.dll
-C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.pdb
->>>>>>> 1d2ef90185a64eae4672617bdae99149dd986502
