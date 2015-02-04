@@ -1,10 +1,13 @@
 ﻿using MonsterSpell.Core.Characters;
 using System;
+using System.Net.Sockets;
 
 namespace MonsterSpell.Core
 {
     public class Player : IPlayer
     {
+        public TcpClient Client { get; private set; }
+
         public string ID
         {
             get

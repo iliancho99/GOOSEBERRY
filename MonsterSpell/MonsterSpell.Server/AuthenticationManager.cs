@@ -15,6 +15,11 @@ namespace MonsterSpell.Server
 
         public event UserLoggedInHandler OnUserLoggedIn;
 
+        public bool IsActive
+        {
+            get { return this.Active; }
+        }
+
         public new void Start()
         {
             try
