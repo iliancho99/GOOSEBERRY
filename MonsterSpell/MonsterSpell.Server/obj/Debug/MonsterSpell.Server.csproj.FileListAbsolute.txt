@@ -1,0 +1,8 @@
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Server\obj\Debug\MonsterSpell.Server.csprojResolveAssemblyReference.cache
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Server\bin\Debug\MonsterSpell.Server.exe.config
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Server\bin\Debug\MonsterSpell.Server.exe
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Server\bin\Debug\MonsterSpell.Server.pdb
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Server\bin\Debug\MonsterSpell.Core.dll
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Server\bin\Debug\MonsterSpell.Core.pdb
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Server\obj\Debug\MonsterSpell.Server.exe
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Server\obj\Debug\MonsterSpell.Server.pdb
