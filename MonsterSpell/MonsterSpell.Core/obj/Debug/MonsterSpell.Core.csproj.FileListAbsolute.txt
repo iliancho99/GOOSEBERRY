@@ -1,0 +1,4 @@
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.dll
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.pdb
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.dll
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.pdb
