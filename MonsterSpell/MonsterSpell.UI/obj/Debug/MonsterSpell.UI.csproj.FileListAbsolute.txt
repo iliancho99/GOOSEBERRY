@@ -1,1 +1,12 @@
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe.config
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.pdb
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MainWindow.baml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MainWindow.g.cs
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\App.g.cs
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI_MarkupCompile.cache
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.g.resources
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.Properties.Resources.resources
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.csproj.GenerateResource.Cache
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.exe
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.pdb

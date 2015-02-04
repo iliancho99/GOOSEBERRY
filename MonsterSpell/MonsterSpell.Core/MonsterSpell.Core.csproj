@@ -39,7 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\ICharacter.cs" />
+    <Compile Include="GameElement.cs" />
+    <Compile Include="GameEngine.cs" />
+    <Compile Include="Interfaces\IEquipable.cs" />
+    <Compile Include="Interfaces\IMoveable.cs" />
+    <Compile Include="Items\IItem.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
