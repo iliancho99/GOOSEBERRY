@@ -13,7 +13,6 @@ namespace MonsterSpell.Core.Characters
         int HealthPoints { get; set; }
         IItem[] Inventory { get; }
         int ManaPoints { get; set; }
-        void Move(Position newPosition);
         string Name { get; set; }
         Position Position { get; }
         void RemoveItem(IItem item);

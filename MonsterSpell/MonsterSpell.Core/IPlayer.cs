@@ -1,8 +1,8 @@
 ﻿using MonsterSpell.Core.Characters;
 
-namespace MonsterSpell.Server
+namespace MonsterSpell.Core
 {
-    internal interface IPlayer
+    public interface IPlayer
     {
         string ID { get; set; }
         string NickName { get; set; }
