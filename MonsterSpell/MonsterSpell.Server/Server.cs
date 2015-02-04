@@ -14,24 +14,7 @@ namespace MonsterSpell.Server
 
         private static void Main(string[] args)
         {
-            var authenticationManager = new AuthenticationManager(DefaultAddress, DEFAULT_PORT);
-            authenticationManager.OnUserLoggedIn += OnUserLoggedIn;
-            authenticationManager.Start();
-
-            while (authenticationManager.IsActive) { }
-        }
-
-        private static void OnUserLoggedIn(UserLoggedInEventArgs eventArgs)
-        {
-            if (!onlinePlayers.Contains(eventArgs.Player))
-            {
-                onlinePlayers.Add(eventArgs.Player);
-                ListenForPlayerActions(eventArgs.Player);
-            }
-            else
-            {
-                // TODO: Return response
-            }
+            
         }
 
         private static async void ListenForPlayerActions(IPlayer player)
