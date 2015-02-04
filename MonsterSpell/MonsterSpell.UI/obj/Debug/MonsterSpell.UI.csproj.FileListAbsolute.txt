@@ -13,3 +13,6 @@ D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.Core.dll
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.Core.pdb
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.csprojResolveAssemblyReference.cache
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe.config
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.exe
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.pdb
