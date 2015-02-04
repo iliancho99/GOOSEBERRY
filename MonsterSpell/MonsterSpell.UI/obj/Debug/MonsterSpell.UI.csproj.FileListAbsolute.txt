@@ -16,3 +16,15 @@ D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI
 C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe.config
 C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.exe
 C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.pdb
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.pdb
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.Core.dll
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.Core.pdb
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.csprojResolveAssemblyReference.cache
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MainWindow.baml
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MainWindow.g.cs
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\App.g.cs
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI_MarkupCompile.cache
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.g.resources
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.Properties.Resources.resources
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.csproj.GenerateResource.Cache

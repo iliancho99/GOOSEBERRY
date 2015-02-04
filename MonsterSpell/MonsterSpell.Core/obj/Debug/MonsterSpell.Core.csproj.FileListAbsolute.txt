@@ -2,3 +2,8 @@ D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.pdb
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.dll
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.pdb
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.dll
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\bin\Debug\MonsterSpell.Core.pdb
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.csprojResolveAssemblyReference.cache
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.dll
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.Core\obj\Debug\MonsterSpell.Core.pdb
