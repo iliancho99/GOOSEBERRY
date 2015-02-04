@@ -1,0 +1,14 @@
+﻿<Window x:Class="MonsterSpell.UI.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LoginWindow" Height="314" Width="538">
+    <Grid>
+        <Label Content="Welcome to Monster Spell!" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe Print"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="usernameInput" HorizontalAlignment="Left" Height="33" Margin="126,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="380" FontSize="20"/>
+        <TextBox x:Name="passwordInput" HorizontalAlignment="Left" Height="33" Margin="126,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="380" FontSize="20"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="87,216,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Height="34" Click="Login"/>
+        <Button Content="Register" HorizontalAlignment="Left" Margin="341,216,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Height="34" Click="Register"/>
+    </Grid>
+</Window>
