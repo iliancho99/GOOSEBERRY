@@ -19,3 +19,6 @@ D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.csproj.GenerateResource.Cache
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.exe
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.pdb
+C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe.config
+C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.exe
+C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.pdb
