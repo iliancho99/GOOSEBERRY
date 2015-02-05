@@ -2,6 +2,9 @@
 
 namespace MonsterSpell.Core
 {
+    /// <summary>
+    /// Base class for all game objects
+    /// </summary>
     public abstract class GameElement
     {
         protected GameElement(string id)

@@ -7,21 +7,18 @@ using System.Windows.Shapes;
 
 namespace MonsterSpell.UI
 {
-    /// <summary>
-    /// Interaction logic for GameWindow.xaml
-    /// </summary>
-    /// 
-
     internal static class Extensions
     {
         public static void MoveTo(this Rectangle target, Point newPosition)
         {
             TranslateTransform transform = new TranslateTransform();
             target.RenderTransform = transform;
+
             DoubleAnimation topAnimation =
-                new DoubleAnimation(target.Margin.Top, newPosition.Y, TimeSpan.FromSeconds(1));
+                new DoubleAnimation(Canvas.GetTop(target), newPosition.Y, TimeSpan.FromSeconds(1));
             DoubleAnimation leftAnimation =
-                new DoubleAnimation(target.Margin.Left, newPosition.X, TimeSpan.FromSeconds(1));
+                new DoubleAnimation(Canvas.GetLeft(target), newPosition.X, TimeSpan.FromSeconds(1));
+            //leftAnimation.Completed += (s, e) => Canvas.SetLeft(target, newPosition.X);
 
             transform.BeginAnimation(TranslateTransform.XProperty, leftAnimation);
             transform.BeginAnimation(TranslateTransform.YProperty, topAnimation);
@@ -34,25 +31,16 @@ namespace MonsterSpell.UI
         {
             InitializeComponent();
 
-            this.MouseRightButtonUp += gameField_PreviewMouseRightButtonUp;
-
-            this.KeyDown += GameWindow_KeyDown;
-            this.KeyUp += GameWindow_KeyUp;
+            this.MouseRightButtonUp += OnMouseRightButtonUp;
+            this.KeyUp += GameWindowKeyUp;
         }
 
-        void gameField_PreviewMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void OnMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             this.element.MoveTo(e.GetPosition(this.gameField));
         }
 
-        
-
-        void GameWindow_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void GameWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void GameWindowKeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
             switch (e.Key)
             {
@@ -69,7 +57,7 @@ namespace MonsterSpell.UI
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void WindowLoaded(object sender, RoutedEventArgs e)
         {
             this.gameField.Width = this.ActualWidth;
             this.gameField.Height = this.ActualHeight;

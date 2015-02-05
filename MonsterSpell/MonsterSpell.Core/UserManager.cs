@@ -12,6 +12,9 @@ namespace MonsterSpell.Core
     {
         private static MongoCollection<User> users = null;
 
+        /// <summary>
+        /// UserManager needs MongoCollection to work with.
+        /// </summary>
         public static MongoCollection<User> Users
         {
             get { return users; }
@@ -23,6 +26,12 @@ namespace MonsterSpell.Core
             }
         }
 
+        /// <summary>
+        /// Connects to mongodb and login with the given information.
+        /// </summary>
+        /// <param name="user">Should contain login information. Property is logged in is set to true when successful.</param>
+        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void Login(User user)
         {
             if (users == null)
@@ -43,6 +52,12 @@ namespace MonsterSpell.Core
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user">Should contain login information</param>
+        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void Register(User user)
         {
             Debug.Assert(users != null);

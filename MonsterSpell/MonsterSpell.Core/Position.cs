@@ -3,7 +3,6 @@ namespace MonsterSpell.Core
 {
     public struct Position
     {
-
         public Position(int x, int y)
             : this()
         {

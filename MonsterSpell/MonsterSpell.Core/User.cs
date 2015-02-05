@@ -2,6 +2,9 @@
 
 namespace MonsterSpell.Core
 {
+    /// <summary>
+    /// Represents mongodb model
+    /// </summary>
     internal class User
     {
         private string username = string.Empty;
