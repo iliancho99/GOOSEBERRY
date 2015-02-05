@@ -8,6 +8,9 @@ using System.Text;
 
 namespace MonsterSpell.Core
 {
+    /// <summary>
+    /// Works with mongodb and manages the user login and registrations
+    /// </summary>
     internal static class UserManager
     {
         private static MongoCollection<User> users = null;

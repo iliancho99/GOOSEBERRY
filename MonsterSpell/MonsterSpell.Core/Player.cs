@@ -4,6 +4,9 @@ using System.Net.Sockets;
 
 namespace MonsterSpell.Core
 {
+    /// <summary>
+    /// Base player class
+    /// </summary>
     public class Player : IPlayer
     {
         public TcpClient Client { get; private set; }
