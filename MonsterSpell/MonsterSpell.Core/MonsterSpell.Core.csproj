@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\ICharacter.cs" />
+    <Compile Include="DBModels\Character.cs" />
     <Compile Include="GameElement.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="Interfaces\IEquipable.cs" />
@@ -57,7 +58,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="DBModels\User.cs" />
     <Compile Include="UserManager.cs" />
   </ItemGroup>
   <ItemGroup>

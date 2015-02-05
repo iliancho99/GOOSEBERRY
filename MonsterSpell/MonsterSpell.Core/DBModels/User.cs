@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace MonsterSpell.Core
+namespace MonsterSpell.Core.DBModels
 {
     /// <summary>
     /// Represents mongodb model
@@ -17,8 +18,6 @@ namespace MonsterSpell.Core
         }
 
         public int Id { get; set; }
-
-        public bool IsLoggedIn { get; set; }
 
         public string Username
         {
@@ -41,5 +40,7 @@ namespace MonsterSpell.Core
                 this.password = value;
             }
         }
+
+        public List<Character> Characters { get; set; }
     }
 }

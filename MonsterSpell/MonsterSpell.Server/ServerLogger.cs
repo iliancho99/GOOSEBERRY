@@ -9,7 +9,7 @@ namespace MonsterSpell.Server
             if (string.IsNullOrEmpty(msg))
                 throw new ArgumentNullException("Please provide message!");
 
-            //throw new NotImplementedException();
+            Console.WriteLine(msg);
             //TODO : To be implemented!
         }
 

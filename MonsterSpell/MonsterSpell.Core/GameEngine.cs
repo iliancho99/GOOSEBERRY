@@ -1,8 +1,12 @@
 ﻿using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
+using MonsterSpell.Core.DBModels;
 using System;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 
 namespace MonsterSpell.Core
 {
@@ -11,6 +15,8 @@ namespace MonsterSpell.Core
     /// </summary>
     public static class GameEngine
     {
+        private static readonly IPAddress ServerAddress = IPAddress.Parse("127.3.3.1");
+        private const int DEFAULT_PORT = 7241;
         private const string DB_URI = "mongodb://admin:qwerty@ds045998.mongolab.com:45998/monsterspell";
 
         private static MongoDatabase database = null;
@@ -33,7 +39,8 @@ namespace MonsterSpell.Core
         /// <exception cref="ArgumentNullException"></exception>
         public static void Login(string username, string password)
         {
-            UserManager.Login(new User(username, password));
+            var user = UserManager.Login(username, password);
+            ConnectToServer(user);
         }
 
         /// <summary>
@@ -45,7 +52,17 @@ namespace MonsterSpell.Core
         /// <exception cref="ArgumentNullException"></exception>
         public static void Register(string username, string password)
         {
-            UserManager.Register(new User(username, password));
+            var user = UserManager.Register(username, password);
+            ConnectToServer(user);
+        }
+
+        private static void ConnectToServer(User user)
+        {
+            if (user == null)
+                throw new ArgumentNullException("Please provide non null user!");
+
+            //var player = new Player(user);
+            //player.ConnectToServer(ServerAddress, DEFAULT_PORT);
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using MonsterSpell.Core.Characters;
+using MonsterSpell.Core.DBModels;
 using System;
+using System.IO;
+using System.Net;
 using System.Net.Sockets;
 
 namespace MonsterSpell.Core
@@ -7,33 +10,22 @@ namespace MonsterSpell.Core
     /// <summary>
     /// Base player class
     /// </summary>
-    public class Player : IPlayer
+    internal class Player : TcpClient
     {
-        public TcpClient Client { get; private set; }
+        private StreamWriter streamWriter = null;
+        private StreamReader streamReader = null;
 
-        public string ID
+        public Player(User user)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            if (user == null)
+                throw new ArgumentNullException("User cannot be null!");
+            this.Id = user.Id;
+            this.NickName = user.Username;
         }
 
-        public string NickName
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int Id { get; private set; }
+
+        public string NickName { get; private set; }
 
         public ICharacter[] Characters
         {
@@ -48,6 +40,16 @@ namespace MonsterSpell.Core
         public void DeleteCharacter(ICharacter character)
         {
             throw new NotImplementedException();
+        }
+
+        public async void ConnectToServer(IPAddress ip, int port)
+        {
+            await this.ConnectAsync(ip, port);
+            this.streamReader = new StreamReader(this.GetStream());
+            this.streamWriter = new StreamWriter(this.GetStream());
+
+            //First we need to send some information about us
+            
         }
     }
 }

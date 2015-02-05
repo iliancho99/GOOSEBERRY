@@ -1,5 +1,6 @@
 ﻿using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using MonsterSpell.Core.DBModels;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -32,55 +33,61 @@ namespace MonsterSpell.Core
         /// <summary>
         /// Connects to mongodb and login with the given information.
         /// </summary>
-        /// <param name="user">Should contain login information. Property is logged in is set to true when successful.</param>
+        /// <param name="username">Username to login with.</param>
+        /// <param name="password">Password to login with.</param>
+        /// <returns>Null if login is unsuccessful.</returns>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void Login(User user)
+        public static User Login(string username, string password)
         {
             if (users == null)
                 throw new InvalidOperationException("Please set user collection first!");
-            if (user == null)
-                throw new ArgumentNullException("Cannot login with null user!");
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                throw new ArgumentNullException("Cannot login with empty username/password!");
 
-            user.Password = GetMD5(user.Password);
-            var userExists = users.AsQueryable<User>()
-                .Any(x => x.Username == user.Username && x.Password == user.Password);
-            if (userExists)
-            {
-                user.IsLoggedIn = true;
-            }
-            else
-            {
-                throw new InvalidOperationException("Invalid username/password");
-            }
+            string md5Pass = GetMD5(password);
+            var user = users.AsQueryable<User>()
+                .FirstOrDefault(x => x.Username == username && x.Password == md5Pass);
+            user.Password = string.Empty;
+
+            return user;
         }
 
         /// <summary>
-        /// 
+        /// Connects to mongodb and inserts new user with given information.
         /// </summary>
         /// <param name="user">Should contain login information</param>
+        /// <returns>Null if registration is unsuccessful</returns>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void Register(User user)
+        public static User Register(string username, string password)
         {
             Debug.Assert(users != null);
 
             if (users == null)
                 throw new InvalidOperationException("Please set user collection first!");
-            if (user == null)
-                throw new ArgumentNullException("Cannot register null user!");
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                throw new ArgumentNullException("Cannot register with empty username/password!");
 
             var userWithSameNameExists = users.AsQueryable<User>()
-                .Any(x => x.Username == user.Username);
+                .Any(x => x.Username == username);
             if (userWithSameNameExists)
             {
                 throw new InvalidOperationException("There is already user with this name");
             }
 
-            user.Password = GetMD5(user.Password);
+            var user = new User(username, GetMD5(password));
             users.Insert(user);
+            user.Password = string.Empty;
+
+            return user;
         }
 
+        /// <summary>
+        /// Encrypts string with MD5 Algorythm
+        /// </summary>
+        /// <param name="input">The string to be encrypted</param>
+        /// <returns>MD5 encrypted string</returns>
         private static string GetMD5(string input)
         {
             using (var md5 = MD5.Create())

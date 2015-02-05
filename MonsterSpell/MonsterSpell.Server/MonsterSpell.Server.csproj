@@ -47,20 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Player.cs" />
+    <Compile Include="ServerListener.cs" />
     <Compile Include="ServerLogger.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserLoggedInEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MonsterSpell.Core\MonsterSpell.Core.csproj">
-      <Project>{2ddf598c-87eb-4e74-8a03-632f730c91b1}</Project>
-      <Name>MonsterSpell.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
