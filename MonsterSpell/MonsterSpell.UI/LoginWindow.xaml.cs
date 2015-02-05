@@ -17,7 +17,7 @@ namespace MonsterSpell.UI
 
         private void Register(object sender, RoutedEventArgs e)
         {
-            HandleRequest(GameEngine.Register, () =>
+            ButtonClick(GameEngine.Register, () =>
             {
                 MessageBox.Show("Registration successful!");
             });
@@ -25,7 +25,7 @@ namespace MonsterSpell.UI
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            HandleRequest(GameEngine.Login, () =>
+            ButtonClick(GameEngine.Login, () =>
             {
                 Dispatcher.Invoke(() =>
                 {
@@ -35,7 +35,7 @@ namespace MonsterSpell.UI
             });
         }
 
-        private void HandleRequest(Action<string, string> action, Action callback)
+        private void ButtonClick(Action<string, string> action, Action callback)
         {
             try
             {

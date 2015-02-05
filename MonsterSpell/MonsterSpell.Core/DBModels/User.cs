@@ -15,6 +15,7 @@ namespace MonsterSpell.Core.DBModels
         {
             this.Username = username;
             this.Password = password;
+            this.Characters = new List<Characters.Character>();
         }
 
         public int Id { get; set; }
@@ -41,7 +42,7 @@ namespace MonsterSpell.Core.DBModels
             }
         }
 
-        public List<MonsterSpell.Core.Characters.Character> Characters { get; set; }
+        public List<Characters.Character> Characters { get; set; }
 
         public override string ToString()
         {
