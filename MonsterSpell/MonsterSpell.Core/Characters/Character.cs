@@ -6,6 +6,9 @@ using MonsterSpell.Core.Items;
 
 namespace MonsterSpell.Core.Characters
 {
+    /// <summary>
+    /// Base class for all characters.
+    /// </summary>
     public abstract class Character : GameElement, ICharacter
     {
         private string name = string.Empty;
@@ -19,6 +22,9 @@ namespace MonsterSpell.Core.Characters
         protected Character(string id)
             : base(id) { }
 
+        /// <summary>
+        /// Character's name
+        /// </summary>
         public string Name
         {
             get { return this.name; }
@@ -32,6 +38,9 @@ namespace MonsterSpell.Core.Characters
             }
         }
 
+        /// <summary>
+        /// Character's health points
+        /// </summary>
         public int HealthPoints
         {
             get { return this.healthPoints; }
@@ -42,6 +51,9 @@ namespace MonsterSpell.Core.Characters
             }
         }
 
+        /// <summary>
+        /// Character's attack points
+        /// </summary>
         public int AttackPoints
         {
             get { return this.attackPoints; }
@@ -52,6 +64,9 @@ namespace MonsterSpell.Core.Characters
             }
         }
 
+        /// <summary>
+        /// Character's defense points
+        /// </summary>
         public int DefensePoints
         {
             get { return this.defensePoints; }
@@ -62,6 +77,9 @@ namespace MonsterSpell.Core.Characters
             }
         }
 
+        /// <summary>
+        /// Character's mana points
+        /// </summary>
         public int ManaPoints
         {
             get { return this.manaPoints; }
@@ -72,38 +90,67 @@ namespace MonsterSpell.Core.Characters
             }
         }
 
+        /// <summary>
+        /// Character's current position on the map
+        /// </summary>
         public Position Position { get; private set; }
 
+        /// <summary>
+        /// All items in the character's inventory
+        /// </summary>
         public IItem[] Inventory
         {
             get { return this.inventory.ToArray(); }
         }
 
+        /// <summary>
+        /// All equipped items on the character
+        /// </summary>
         public IEquipable[] EquippedItems
         {
             get { return this.equippedItems.ToArray(); }
         }
 
+        /// <summary>
+        /// Moves the character in new position.
+        /// </summary>
+        /// <param name="newPosition">The new position of the character.</param>
         public abstract void Move(Position newPosition);
 
+        /// <summary>
+        /// Adds item to the character's inventory.
+        /// </summary>
+        /// <param name="item">Item to be added</param>
         public virtual void AddItem(IItem item)
         {
             // TODO: To be implemented!
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Removes item from the character's inventory.
+        /// </summary>
+        /// <param name="item">Item to be removed</param>
         public virtual void RemoveItem(IItem item)
         {
             // TODO: To be implemented!
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Equips item from the inventory. Applies its effects on the character.
+        /// </summary>
+        /// <param name="item">Item to be equipped</param>
         public virtual void EquipItem(IEquipable item)
         {
             // TODO: To be implemented!
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Unequips item from the inventory. Removes its effects from the character.
+        /// </summary>
+        /// <param name="item">Item to be unequipped</param>
         public virtual void UnequipItem(IEquipable item)
         {
             // TODO: To be implemented!
