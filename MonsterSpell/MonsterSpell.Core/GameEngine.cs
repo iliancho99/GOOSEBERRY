@@ -20,6 +20,7 @@ namespace MonsterSpell.Core
         private const string DB_URI = "mongodb://admin:qwerty@ds045998.mongolab.com:45998/monsterspell";
 
         private static MongoDatabase database = null;
+        private static IPlayer currentPlayer = null;
 
         static GameEngine()
         {
@@ -28,6 +29,17 @@ namespace MonsterSpell.Core
             database = server.GetDatabase("monsterspell");
 
             UserManager.Users = database.GetCollection<User>("users");
+        }
+
+        /// <summary>
+        /// Returns the current logged in player
+        /// </summary>
+        public static IPlayer Player
+        {
+            get
+            {
+                return currentPlayer;
+            }
         }
 
         /// <summary>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\App.xaml
-2-380070437
+41773151674
 
-6185325973
+8382273844
 13-795155209
-GameWindow.xaml;LoginWindow.xaml;
+GamePlayPage.xaml;LoginPage.xaml;PageSwitcher.xaml;UserPage.xaml;
 
 False
 

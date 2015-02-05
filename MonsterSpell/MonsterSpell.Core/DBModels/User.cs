@@ -6,7 +6,7 @@ namespace MonsterSpell.Core.DBModels
     /// <summary>
     /// Represents mongodb model
     /// </summary>
-    internal class User
+    public class User
     {
         private string username = string.Empty;
         private string password = string.Empty;
@@ -41,6 +41,11 @@ namespace MonsterSpell.Core.DBModels
             }
         }
 
-        public List<Character> Characters { get; set; }
+        public List<MonsterSpell.Core.Characters.Character> Characters { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("ID: {0}, Name: {1}", this.Id, this.Username);
+        }
     }
 }

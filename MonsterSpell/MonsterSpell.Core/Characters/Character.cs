@@ -157,6 +157,12 @@ namespace MonsterSpell.Core.Characters
             throw new NotImplementedException();
         }
 
+        public override string ToString()
+        {
+            return string.Format("ID: {0} Name: {1} Level: {2}",
+                this.ID, this.Name, 3); // Hardcode for now
+        }
+
         protected virtual void ApplyItemEffects()
         {
             // TODO: To be implemented!
