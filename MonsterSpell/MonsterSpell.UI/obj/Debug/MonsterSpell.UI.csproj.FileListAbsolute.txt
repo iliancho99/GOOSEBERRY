@@ -26,3 +26,5 @@ D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\GamePlayPage.g.
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\LoginPage.g.cs
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\PageSwitcher.g.cs
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\UserPage.g.cs
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\CharacterCreationPage.baml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\CharacterCreationPage.g.cs

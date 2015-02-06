@@ -112,12 +112,6 @@ namespace MonsterSpell.Core.Characters
         }
 
         /// <summary>
-        /// Moves the character in new position.
-        /// </summary>
-        /// <param name="newPosition">The new position of the character.</param>
-        public abstract void Move(Position newPosition);
-
-        /// <summary>
         /// Adds item to the character's inventory.
         /// </summary>
         /// <param name="item">Item to be added</param>

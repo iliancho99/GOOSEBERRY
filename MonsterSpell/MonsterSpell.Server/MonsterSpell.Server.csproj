@@ -32,12 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player.cs" />
     <Compile Include="ServerListener.cs" />
     <Compile Include="ServerLogger.cs" />
     <Compile Include="Server.cs" />

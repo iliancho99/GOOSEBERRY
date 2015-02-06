@@ -57,6 +57,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CharacterCreationPage.xaml.cs">
+      <DependentUpon>CharacterCreationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="CharacterCreationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GamePlayPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

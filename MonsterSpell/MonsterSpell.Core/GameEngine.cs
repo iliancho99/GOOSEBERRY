@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Collections.Generic;
+using MonsterSpell.Core.Players;
 
 namespace MonsterSpell.Core
 {
@@ -18,9 +20,14 @@ namespace MonsterSpell.Core
         private static readonly IPAddress ServerAddress = IPAddress.Parse("127.3.3.1");
         private const int DEFAULT_PORT = 7241;
         private const string DB_URI = "mongodb://admin:qwerty@ds045998.mongolab.com:45998/monsterspell";
+        private const int MAX_OPPONENTS_COUNT = 5;
 
         private static MongoDatabase database = null;
-        private static IPlayer currentPlayer = null;
+        private static Player currentPlayer = null;
+        private static List<IPlayer> opponents = new List<IPlayer>();
+        private static StreamReader streamReader = null;
+        private static StreamWriter streamWriter = null;
+        private static Random random = new Random();
 
         static GameEngine()
         {
@@ -34,7 +41,7 @@ namespace MonsterSpell.Core
         /// <summary>
         /// Returns the current logged in player
         /// </summary>
-        public static IPlayer Player
+        public static Player Player
         {
             get
             {
@@ -52,7 +59,7 @@ namespace MonsterSpell.Core
         public static void Login(string username, string password)
         {
             var user = UserManager.Login(username, password);
-            ConnectToServer(user);
+            Init(user);
         }
 
         /// <summary>
@@ -65,16 +72,54 @@ namespace MonsterSpell.Core
         public static void Register(string username, string password)
         {
             var user = UserManager.Register(username, password);
-            ConnectToServer(user);
+            Init(user);
         }
 
-        private static void ConnectToServer(User user)
+        /// <summary>
+        /// Connects to the server and start listening for messages
+        /// </summary>
+        /// <param name="user">User contains necessary data</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        private static async void Init(User user)
         {
             if (user == null)
                 throw new ArgumentNullException("Please provide non null user!");
 
-            //var player = new Player(user);
-            //player.ConnectToServer(ServerAddress, DEFAULT_PORT);
+            currentPlayer = new Player(user);
+            await currentPlayer.ConnectAsync(ServerAddress, DEFAULT_PORT);
+
+            currentPlayer.OnOpponentRemoved += OnOpponentRemoved;
+
+            while (currentPlayer.Connected)
+            {
+                string messageType = await streamReader.ReadLineAsync();
+                string data = await streamReader.ReadLineAsync();
+
+                ProcessMessage(int.Parse(messageType), data);
+            }
+        }
+
+        private static void OnOpponentRemoved(Events.OponentChangedEventArgs eventArgs)
+        {
+            if (currentPlayer.Opponents.Length < MAX_OPPONENTS_COUNT)
+            {
+                var randomId = random.Next(0, int.MaxValue);
+                var bot = new Bot(randomId, currentPlayer);
+                currentPlayer.AddOpponent(bot);
+            }
+        }
+
+        private static void ProcessMessage(int messageType, string data)
+        {
+            switch ((MessageType)messageType)
+            {
+                case MessageType.Attacked:
+                    break;
+                case MessageType.Attack:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

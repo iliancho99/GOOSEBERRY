@@ -35,5 +35,10 @@ namespace MonsterSpell.UI
             items.Add(new User("qwe", "fdsfsdf"));
             CharactersListBox.ItemsSource = items;
         }
+
+        private void SwitchToCreateCharacterPage(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Navigate(new CharacterCreationPage(() => this.Navigate(this)));
+        }
     }
 }

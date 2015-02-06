@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonsterSpell.Server
+namespace MonsterSpell.Core
 {
-    internal class Player
+    public enum MessageType
     {
-
+        Attacked, Attack,
     }
 }

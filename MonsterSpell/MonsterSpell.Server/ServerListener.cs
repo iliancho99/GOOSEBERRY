@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonsterSpell.Server
 {
     internal class ServerListener : TcpListener
     {
-        public ServerListener(IPAddress address, int port)
+        public ServerListener(IPAddress address, int port, Action<StreamReader, StreamWriter> OnClientConnected)
             : base(address, port)
         {
             try
@@ -19,7 +18,7 @@ namespace MonsterSpell.Server
                 ServerLogger.LogMessage(
                     string.Format("Server is listening at address {0} and port {1}",
                     address, port));
-                WaitConnections();
+                WaitConnections(OnClientConnected);
             }
             catch (SocketException ex)
             {
@@ -27,11 +26,21 @@ namespace MonsterSpell.Server
             }
         }
 
-        private async void WaitConnections()
+        public new bool Active
+        {
+            get { return base.Active;}
+        }
+
+        private async void WaitConnections(Action<StreamReader, StreamWriter> OnClientConnected)
         {
             while (this.Active)
             {
                 var client = await this.AcceptTcpClientAsync();
+                using (var streamReader = new StreamReader(client.GetStream()))
+                using (var streamWriter = new StreamWriter(client.GetStream()))
+                {
+                    OnClientConnected(streamReader, streamWriter);
+                }
             }
         }
     }

@@ -3,7 +3,7 @@ using MonsterSpell.Core.Items;
 
 namespace MonsterSpell.Core.Characters
 {
-    public interface ICharacter : IMoveable
+    public interface ICharacter
     {
         void AddItem(IItem item);
         int AttackPoints { get; set; }
