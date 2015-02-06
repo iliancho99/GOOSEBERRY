@@ -9,7 +9,6 @@ namespace MonsterSpell.Core.DBModels
     public class User
     {
         private string username = string.Empty;
-        private string password = string.Empty;
 
         public User(string username, string password)
         {
@@ -31,16 +30,7 @@ namespace MonsterSpell.Core.DBModels
             }
         }
 
-        public string Password
-        {
-            get { return this.password; }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                    throw new ArgumentNullException("Password cannot be null or empty!");
-                this.password = value;
-            }
-        }
+        public string Password { get; set; }
 
         public List<Characters.Character> Characters { get; set; }
 

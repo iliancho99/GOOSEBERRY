@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
     <Compile Include="ServerListener.cs" />
     <Compile Include="ServerLogger.cs" />
     <Compile Include="Server.cs" />

@@ -9,6 +9,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Collections.Generic;
 using MonsterSpell.Core.Players;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MonsterSpell.Core
 {
@@ -56,10 +58,17 @@ namespace MonsterSpell.Core
         /// <param name="password"></param>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void Login(string username, string password)
+        public static async Task Login(string username, string password)
         {
             var user = UserManager.Login(username, password);
-            Init(user);
+            try
+            {
+                await Init(user);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -69,10 +78,10 @@ namespace MonsterSpell.Core
         /// <param name="password"></param>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void Register(string username, string password)
+        public static async Task Register(string username, string password)
         {
             var user = UserManager.Register(username, password);
-            Init(user);
+            await Init(user);
         }
 
         /// <summary>
@@ -80,22 +89,29 @@ namespace MonsterSpell.Core
         /// </summary>
         /// <param name="user">User contains necessary data</param>
         /// <exception cref="ArgumentNullException"></exception>
-        private static async void Init(User user)
+        private static async Task Init(User user)
         {
-            if (user == null)
-                throw new ArgumentNullException("Please provide non null user!");
+            Debug.Assert(user != null);
 
             currentPlayer = new Player(user);
-            await currentPlayer.ConnectAsync(ServerAddress, DEFAULT_PORT);
-
-            currentPlayer.OnOpponentRemoved += OnOpponentRemoved;
-
-            while (currentPlayer.Connected)
+            try
             {
-                string messageType = await streamReader.ReadLineAsync();
-                string data = await streamReader.ReadLineAsync();
+                await currentPlayer.ConnectAsync(ServerAddress, DEFAULT_PORT);
 
-                ProcessMessage(int.Parse(messageType), data);
+                currentPlayer.OnOpponentRemoved += OnOpponentRemoved;
+
+                while (currentPlayer.Connected)
+                {
+                    string messageType = await streamReader.ReadLineAsync();
+                    string data = await streamReader.ReadLineAsync();
+
+                    ProcessMessage(int.Parse(messageType), data);
+                }
+            }
+            catch (SocketException ex)
+            {
+                currentPlayer = null;
+                throw new ClientException("Cannot connect to server!", ex);
             }
         }
 

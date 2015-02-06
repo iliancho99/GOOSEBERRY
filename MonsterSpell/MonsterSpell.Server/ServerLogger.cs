@@ -9,7 +9,7 @@ namespace MonsterSpell.Server
             if (string.IsNullOrEmpty(msg))
                 throw new ArgumentNullException("Please provide message!");
 
-            Console.WriteLine(msg);
+            Console.WriteLine(string.Format("Log: {0}", msg));
             //TODO : To be implemented!
         }
 
