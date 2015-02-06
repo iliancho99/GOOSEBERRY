@@ -109,6 +109,11 @@ namespace MonsterSpell.Core
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="messageType"></param>
+        /// <param name="data"></param>
         private static void ProcessMessage(int messageType, string data)
         {
             switch ((MessageType)messageType)
