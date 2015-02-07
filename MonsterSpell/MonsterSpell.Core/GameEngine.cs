@@ -41,58 +41,6 @@ namespace MonsterSpell.Core
             UserManager.Users = database.GetCollection<User>("users");
         }
 
-        /// <summary>
-        /// Returns the current logged in player
-        /// </summary>
-        public static Player Player
-        {
-            get
-            {
-                return currentPlayer;
-            }
-        }
-
-        /// <summary>
-        /// Login with provided username and password
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <exception cref="InvalidOperationException"></exception>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static async Task Login(string username, string password)
-        {
-            var user = UserManager.Login(username, password);
-            await Init(user);
-
-        }
-
-        /// <summary>
-        /// Register with provided username and password
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <exception cref="InvalidOperationException"></exception>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static async Task Register(string username, string password)
-        {
-            var user = UserManager.Register(username, password);
-            await Init(user);
-        }
-
-        /// <summary>
-        /// Connects to the server and start listening for messages
-        /// </summary>
-        /// <param name="user">User contains necessary data</param>
-        /// <exception cref="ArgumentNullException"></exception>
-        private static async Task Init(User user)
-        {
-            Debug.Assert(user != null);
-
-            currentPlayer = new UserPlayer(user, database);
-
-            // TODO: Listen for messages
-        }
-
         private static void OnOpponentRemoved(Events.OponentChangedEventArgs eventArgs)
         {
             if (currentPlayer.Opponents.Length < MAX_OPPONENTS_COUNT)
@@ -100,24 +48,6 @@ namespace MonsterSpell.Core
                 var randomId = random.Next(0, int.MaxValue);
                 var bot = new Bot("", null, currentPlayer);
                 currentPlayer.AddOpponent(bot);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="messageType"></param>
-        /// <param name="data"></param>
-        private static void ProcessMessage(int messageType, string data)
-        {
-            switch ((MessageType)messageType)
-            {
-                case MessageType.Attacked:
-                    break;
-                case MessageType.Attack:
-                    break;
-                default:
-                    break;
             }
         }
     }

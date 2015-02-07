@@ -30,7 +30,7 @@ namespace MonsterSpell.UI
 
         private void LoadCharacters()
         {
-            CharactersListBox.ItemsSource = GameEngine.Player.Characters;
+            //CharactersListBox.ItemsSource = GameEngine.Player.Characters;
         }
 
         private void SwitchToCreateCharacterPage(object sender, System.Windows.RoutedEventArgs e)

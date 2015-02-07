@@ -21,46 +21,12 @@ namespace MonsterSpell.UI
 
         private void Register(object sender, RoutedEventArgs e)
         {
-            HandleRequest(GameEngine.Register, () =>
-            {
-                this.Navigate(new UserPage(this.Navigate));
-            });
-        }
-
-        private async void HandleRequest(Func<string, string, Task> func, Action action)
-        {
-            try
-            {
-                ValidateInput();
-                string username = this.usernameInput.Text;
-                string password = this.passwordInput.Text;
-                try
-                {
-                    await func(username, password);
-                    action();
-                }
-                catch (ClientException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    action();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            catch (InvalidOperationException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            this.Navigate(new UserPage(this.Navigate));
         }
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            HandleRequest(GameEngine.Login, () =>
-                {
-                    this.Navigate(new UserPage(this.Navigate));
-                });
+            this.Navigate(new UserPage(this.Navigate));
         }
 
         private void ValidateInput()

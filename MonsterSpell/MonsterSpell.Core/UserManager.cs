@@ -13,9 +13,15 @@ namespace MonsterSpell.Core
     /// <summary>
     /// Works with mongodb and manages the user login and registrations
     /// </summary>
-    internal static class UserManager
+    public static class UserManager
     {
         private static MongoCollection<User> users = null;
+        private static User loggedInUser = null;
+
+        public static User LoggedInUser
+        {
+            get { return loggedInUser; }
+        }
 
         /// <summary>
         /// UserManager needs MongoCollection to work with.
@@ -36,10 +42,9 @@ namespace MonsterSpell.Core
         /// </summary>
         /// <param name="username">Username to login with.</param>
         /// <param name="password">Password to login with.</param>
-        /// <returns>Null if login is unsuccessful.</returns>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
-        public static User Login(string username, string password)
+        public static void Login(string username, string password)
         {
             if (users == null)
                 throw new InvalidOperationException("Please set user collection first!");
@@ -51,17 +56,17 @@ namespace MonsterSpell.Core
                 .FirstOrDefault(x => x.Username == username && x.Password == md5Pass);
             user.Password = string.Empty;
 
-            return user;
+            loggedInUser = user;
         }
 
         /// <summary>
         /// Connects to mongodb and inserts new user with given information.
         /// </summary>
-        /// <param name="user">Should contain login information</param>
-        /// <returns>Null if registration is unsuccessful</returns>
+        /// <param name="username">Username to register with.</param>
+        /// <param name="password">Password to register with.</param>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
-        public static User Register(string username, string password)
+        public static void Register(string username, string password)
         {
             Debug.Assert(users != null);
 
@@ -77,13 +82,20 @@ namespace MonsterSpell.Core
                 throw new InvalidOperationException("There is already user with this name");
             }
 
-            var user = new User(username, GetMD5(password));
-            users.Insert(user);
-            var query = Query<User>.EQ(e => e.Id, user.Id);
-            var userObject = users.FindOne(query);
-            userObject.Password = string.Empty;
+            var userTemplate = new User(username, GetMD5(password));
+            users.Insert(userTemplate);
+            var query = Query<User>.EQ(e => e.Id, userTemplate.Id);
+            var user = users.FindOne(query);
+            user.Password = string.Empty;
+            loggedInUser = user;
+        }
 
-            return userObject;
+        /// <summary>
+        /// Log out the current logged in user
+        /// </summary>
+        public static void Logout()
+        {
+            loggedInUser = null;
         }
 
         /// <summary>
