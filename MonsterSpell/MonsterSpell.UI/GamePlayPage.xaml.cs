@@ -8,11 +8,8 @@ namespace MonsterSpell.UI
     /// </summary>
     public partial class GamePlayPage : Page
     {
-        private Action<Page> Navigate = null;
-
-        public GamePlayPage(Action<Page> Navigate)
+        public GamePlayPage()
         {
-            this.Navigate = Navigate;
             InitializeComponent();
         }
     }

@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace MonsterSpell.UI
 {
@@ -11,22 +12,19 @@ namespace MonsterSpell.UI
     /// </summary>
     public partial class LoginPage : Page
     {
-        private Action<Page> Navigate = null;
-
-        public LoginPage(Action<Page> Navigate)
+        public LoginPage()
         {
             InitializeComponent();
-            this.Navigate = Navigate;
         }
 
         private void Register(object sender, RoutedEventArgs e)
         {
-            this.Navigate(new UserPage(this.Navigate));
+            (Application.Current.MainWindow as NavigationWindow).Navigate(new UserPage());
         }
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            this.Navigate(new UserPage(this.Navigate));
+            (Application.Current.MainWindow as NavigationWindow).Navigate(new UserPage());
         }
 
         private void ValidateInput()

@@ -1,5 +1,4 @@
 ﻿using MonsterSpell.Core.Items;
-using MonsterSpell.Core.Items;
 
 namespace MonsterSpell.Core.Characters
 {

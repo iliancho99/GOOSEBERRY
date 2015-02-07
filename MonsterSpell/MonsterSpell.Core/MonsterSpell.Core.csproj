@@ -49,6 +49,7 @@
     <Compile Include="Characters\CharacterType.cs" />
     <Compile Include="Characters\ICharacter.cs" />
     <Compile Include="Characters\IComputerCharacter.cs" />
+    <Compile Include="Characters\Warrior.cs" />
     <Compile Include="ClientException.cs" />
     <Compile Include="DBModels\Character.cs" />
     <Compile Include="Events\OponentChangedEventArgs.cs" />

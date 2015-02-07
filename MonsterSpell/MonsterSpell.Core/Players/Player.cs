@@ -18,13 +18,10 @@ namespace MonsterSpell.Core.Players
         private List<Characters.Character> characters =
             new List<Characters.Character>();
         
-        protected Player(User user)
+        protected Player(string userId, string nickName)
         {
-            if (user == null)
-                throw new ArgumentNullException("User cannot be null!");
-            this.UserId = user.Id.ToString();
-            this.NickName = user.Username;
-            this.opponents = new List<IPlayer>();
+            this.UserId = userId;
+            this.NickName = nickName;
         }
 
         protected Player(string id, IComputerCharacter character)

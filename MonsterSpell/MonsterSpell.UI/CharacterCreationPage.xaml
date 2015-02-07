@@ -45,6 +45,6 @@
 		<Button Content="Create class" FontSize="20"
 				Width="181" Height="28" VerticalAlignment="Bottom"
 				HorizontalAlignment="Center"
-					Click="Button_Click"/>
+					Click="OnCreateCharacterClicked"/>
 	</Grid>
 </Page>

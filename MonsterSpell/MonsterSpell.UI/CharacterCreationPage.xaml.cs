@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MonsterSpell.Core;
+using MonsterSpell.Core.Characters;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,17 +23,13 @@ namespace MonsterSpell.UI
     /// </summary>
     public partial class CharacterCreationPage : Page
     {
-        private Action Navigate = null;
-
-        public CharacterCreationPage(Action Navigate)
+        public CharacterCreationPage()
         {
-            this.Navigate = Navigate;
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OnCreateCharacterClicked(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }

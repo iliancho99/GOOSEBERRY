@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using MonsterSpell.Core.Items;
-using MonsterSpell.Core.Items;
 
 namespace MonsterSpell.Core.Characters
 {

@@ -1,13 +1,26 @@
+C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe.config
+C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.exe
+C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.pdb
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe.config
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.pdb
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.Core.dll
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MongoDB.Driver.dll
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MongoDB.Bson.dll
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MongoDB.Driver.dll
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.Core.pdb
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MongoDB.Driver.xml
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MongoDB.Bson.xml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MongoDB.Driver.xml
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.csprojResolveAssemblyReference.cache
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\CharacterCreationPage.baml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\GamePlayPage.baml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\LoginPage.baml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\PageSwitcher.baml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\UserPage.baml
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\CharacterCreationPage.g.cs
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\GamePlayPage.g.cs
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\LoginPage.g.cs
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\PageSwitcher.g.cs
+D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\UserPage.g.cs
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\App.g.cs
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI_MarkupCompile.cache
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.g.resources
@@ -15,16 +28,3 @@ D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.csproj.GenerateResource.Cache
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.exe
 D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.pdb
-C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\bin\Debug\MonsterSpell.UI.exe.config
-C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.exe
-C:\Users\Sveto\My Projects\CSharpOOP\MonsterSpell\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\MonsterSpell.UI.pdb
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\GamePlayPage.baml
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\LoginPage.baml
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\PageSwitcher.baml
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\UserPage.baml
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\GamePlayPage.g.cs
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\LoginPage.g.cs
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\PageSwitcher.g.cs
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\UserPage.g.cs
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\CharacterCreationPage.baml
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\CharacterCreationPage.g.cs

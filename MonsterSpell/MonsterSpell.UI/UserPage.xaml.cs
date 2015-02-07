@@ -2,6 +2,7 @@
 using MonsterSpell.Core.DBModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -12,17 +13,14 @@ namespace MonsterSpell.UI
     /// </summary>
     public partial class UserPage : Page
     {
-        private Action<Page> Navigate = null;
-
-        public UserPage(Action<Page> Navigate)
+        public UserPage()
         {
-            this.Navigate = Navigate;
             InitializeComponent();
             this.CharactersListBox.SelectionChanged += (sender, args) =>
             {
-                var listView = sender as ListView;
-                var gamePlayPage = new GamePlayPage(this.Navigate);
-                this.Navigate(gamePlayPage);
+                //var listView = sender as ListView;
+                //var gamePlayPage = new GamePlayPage(this.Navigate);
+                //this.Navigate(gamePlayPage);
             };
 
             LoadCharacters();
@@ -30,12 +28,13 @@ namespace MonsterSpell.UI
 
         private void LoadCharacters()
         {
+            //Debug.Assert(GameEngine.Player != null);
             //CharactersListBox.ItemsSource = GameEngine.Player.Characters;
         }
 
         private void SwitchToCreateCharacterPage(object sender, System.Windows.RoutedEventArgs e)
         {
-            this.Navigate(new CharacterCreationPage(() => this.Navigate(this)));
+            //this.Navigate(new CharacterCreationPage(() => this.Navigate(this)));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Windows.Navigation;
 
 namespace MonsterSpell.UI
@@ -16,8 +16,7 @@ namespace MonsterSpell.UI
 
         private void OnWindowLoaded(object sender, EventArgs args)
         {
-            var loginPage = new LoginPage((page) => this.Navigate(page));
-            this.Navigate(loginPage);
+            this.Navigate(new LoginPage());
         }
     }
 }
