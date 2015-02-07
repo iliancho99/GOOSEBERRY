@@ -58,7 +58,7 @@
 
             <Button Content="Create new character" HorizontalAlignment="Center"
                     VerticalAlignment="Bottom" Height="38" Width="270"
-                    Margin="0 0 0 10" FontSize="20" Click="SwitchToCreateCharacterPage"/>
+                    Margin="0 0 0 10" FontSize="20" Click="OpenCharacterCreationPage"/>
         </Grid>
 	</Grid>
 </Page>

@@ -19,11 +19,13 @@ namespace MonsterSpell.UI
 
         private void Register(object sender, RoutedEventArgs e)
         {
+            // Simulate successful register
             (Application.Current.MainWindow as NavigationWindow).Navigate(new UserPage());
         }
 
         private void Login(object sender, RoutedEventArgs e)
         {
+            // Simulate successful login
             (Application.Current.MainWindow as NavigationWindow).Navigate(new UserPage());
         }
 

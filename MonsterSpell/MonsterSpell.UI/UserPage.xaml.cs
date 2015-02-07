@@ -3,8 +3,10 @@ using MonsterSpell.Core.DBModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Navigation;
 
 namespace MonsterSpell.UI
 {
@@ -32,9 +34,9 @@ namespace MonsterSpell.UI
             //CharactersListBox.ItemsSource = GameEngine.Player.Characters;
         }
 
-        private void SwitchToCreateCharacterPage(object sender, System.Windows.RoutedEventArgs e)
+        private void OpenCharacterCreationPage(object sender, System.Windows.RoutedEventArgs e)
         {
-            //this.Navigate(new CharacterCreationPage(() => this.Navigate(this)));
+            (Application.Current.MainWindow as NavigationWindow).Navigate(new CharacterCreationPage());
         }
     }
 }
