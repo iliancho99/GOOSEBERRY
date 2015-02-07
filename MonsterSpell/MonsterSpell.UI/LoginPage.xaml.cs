@@ -68,7 +68,7 @@ namespace MonsterSpell.UI
             if (string.IsNullOrEmpty(this.usernameInput.Text) ||
                 string.IsNullOrEmpty(this.passwordInput.Text))
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Please enter username and password");
             }
         }
     }
