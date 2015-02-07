@@ -15,8 +15,18 @@ namespace MonsterSpell.Core
     /// </summary>
     public static class UserManager
     {
-        private static MongoCollection<User> users = null;
+        private const string DATABASE_URI = "mongodb://admin:qwerty@ds045998.mongolab.com:45998/monsterspell";
+
+        private static MongoCollection<User> usersCollection = null;
         private static User loggedInUser = null;
+
+        static UserManager()
+        {
+            var mongoClient = new MongoClient(DATABASE_URI);
+            var server = mongoClient.GetServer();
+            var database = server.GetDatabase("monsterspell");
+            usersCollection = database.GetCollection<User>("users");
+        }
 
         public static User LoggedInUser
         {
@@ -28,12 +38,12 @@ namespace MonsterSpell.Core
         /// </summary>
         public static MongoCollection<User> Users
         {
-            get { return users; }
+            get { return usersCollection; }
             set
             {
                 if (value == null)
                     throw new ArgumentNullException("Cannot set null collection!");
-                users = value;
+                usersCollection = value;
             }
         }
 
@@ -46,13 +56,13 @@ namespace MonsterSpell.Core
         /// <exception cref="ArgumentNullException"></exception>
         public static void Login(string username, string password)
         {
-            if (users == null)
+            if (usersCollection == null)
                 throw new InvalidOperationException("Please set user collection first!");
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 throw new ArgumentNullException("Cannot login with empty username/password!");
 
             string md5Pass = GetMD5(password);
-            var user = users.AsQueryable<User>()
+            var user = usersCollection.AsQueryable<User>()
                 .FirstOrDefault(x => x.Username == username && x.Password == md5Pass);
             user.Password = string.Empty;
 
@@ -68,14 +78,14 @@ namespace MonsterSpell.Core
         /// <exception cref="ArgumentNullException"></exception>
         public static void Register(string username, string password)
         {
-            Debug.Assert(users != null);
+            Debug.Assert(usersCollection != null);
 
-            if (users == null)
+            if (usersCollection == null)
                 throw new InvalidOperationException("Please set user collection first!");
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 throw new ArgumentNullException("Cannot register with empty username/password!");
 
-            var userWithSameNameExists = users.AsQueryable<User>()
+            var userWithSameNameExists = usersCollection.AsQueryable<User>()
                 .Any(x => x.Username == username);
             if (userWithSameNameExists)
             {
@@ -83,9 +93,9 @@ namespace MonsterSpell.Core
             }
 
             var userTemplate = new User(username, GetMD5(password));
-            users.Insert(userTemplate);
+            usersCollection.Insert(userTemplate);
             var query = Query<User>.EQ(e => e.Id, userTemplate.Id);
-            var user = users.FindOne(query);
+            var user = usersCollection.FindOne(query);
             user.Password = string.Empty;
             loggedInUser = user;
         }
