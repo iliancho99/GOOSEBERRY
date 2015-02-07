@@ -46,25 +46,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\CharacterType.cs" />
     <Compile Include="Characters\ICharacter.cs" />
+    <Compile Include="Characters\IComputerCharacter.cs" />
     <Compile Include="ClientException.cs" />
     <Compile Include="DBModels\Character.cs" />
     <Compile Include="Events\OponentChangedEventArgs.cs" />
     <Compile Include="GameElement.cs" />
     <Compile Include="GameEngine.cs" />
-    <Compile Include="Interfaces\IEquipable.cs" />
+    <Compile Include="Items\IEquipable.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="Players\Bot.cs" />
     <Compile Include="Players\IPlayer.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Players\Player.cs" />
+    <Compile Include="Players\UserPlayer.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBModels\User.cs" />
     <Compile Include="UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="MonsterSpell.Core.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

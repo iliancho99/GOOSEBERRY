@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MonsterSpell.Server.Client" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAICAAAAAAACgAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Client.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MonsterSpell.Server.Server" Collapsed="true">
+    <Position X="6.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIIAAAABwAACAQAAIAAQAABAAAAAAABAAAAAA=</HashCode>
+      <FileName>Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.Server.ServerListener" Collapsed="true">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>ServerListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.Server.ServerLogger" Collapsed="true">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServerLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

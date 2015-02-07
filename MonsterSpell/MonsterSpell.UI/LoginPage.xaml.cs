@@ -63,11 +63,6 @@ namespace MonsterSpell.UI
                 });
         }
 
-        private void HandleRequest(Task action, Action callback)
-        {
-            
-        }
-
         private void ValidateInput()
         {
             if (string.IsNullOrEmpty(this.usernameInput.Text) ||

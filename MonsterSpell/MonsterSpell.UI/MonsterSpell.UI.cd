@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MonsterSpell.UI.App" Collapsed="true">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.UI.CharacterCreationPage" Collapsed="true">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>CharacterCreationPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.UI.GamePlayPage" Collapsed="true">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>GamePlayPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.UI.LoginPage" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABACAAAAAAAAAABAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>LoginPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.UI.PageSwitcher" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>PageSwitcher.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.UI.UserPage" Collapsed="true">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAIAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>UserPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.UI.Properties.Resources" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpell.UI.Properties.Settings" Collapsed="true">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

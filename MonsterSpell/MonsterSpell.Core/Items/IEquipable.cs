@@ -1,6 +1,6 @@
 ﻿using MonsterSpell.Core.Items;
 
-namespace MonsterSpell.Core.Interfaces
+namespace MonsterSpell.Core.Items
 {
     public interface IEquipable : IItem
     {

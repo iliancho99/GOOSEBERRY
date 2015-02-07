@@ -4,6 +4,7 @@
         Title="MonsterSpell" Loaded="OnWindowLoaded" Width="800" Height="600">
 
     <NavigationWindow.Resources>
+        
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#373737" />
             <Setter Property="Foreground" Value="White" />

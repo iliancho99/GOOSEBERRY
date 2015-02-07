@@ -5,10 +5,10 @@ namespace MonsterSpell.Core.Players
 {
     public interface IPlayer
     {
-        int Id { get; }
+        string UserId { get; }
         string NickName { get; }
-        ICharacter[] Characters { get; }
-        void AddCharacter(ICharacter character);
-        void DeleteCharacter(ICharacter character);
+        Character[] Characters { get; }
+        void AddCharacter(Character character);
+        void DeleteCharacter(Character character);
     }
 }

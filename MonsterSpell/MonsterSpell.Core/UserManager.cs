@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using MonsterSpell.Core.DBModels;
 using System;
@@ -78,9 +79,11 @@ namespace MonsterSpell.Core
 
             var user = new User(username, GetMD5(password));
             users.Insert(user);
-            user.Password = string.Empty;
+            var query = Query<User>.EQ(e => e.Id, user.Id);
+            var userObject = users.FindOne(query);
+            userObject.Password = string.Empty;
 
-            return user;
+            return userObject;
         }
 
         /// <summary>

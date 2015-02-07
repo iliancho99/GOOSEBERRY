@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using MonsterSpell.Core.Players;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using MonsterSpell.Core.Characters;
 
 namespace MonsterSpell.Core
 {
@@ -25,7 +26,7 @@ namespace MonsterSpell.Core
         private const int MAX_OPPONENTS_COUNT = 5;
 
         private static MongoDatabase database = null;
-        private static Player currentPlayer = null;
+        private static UserPlayer currentPlayer = null;
         private static List<IPlayer> opponents = new List<IPlayer>();
         private static StreamReader streamReader = null;
         private static StreamWriter streamWriter = null;
@@ -61,14 +62,8 @@ namespace MonsterSpell.Core
         public static async Task Login(string username, string password)
         {
             var user = UserManager.Login(username, password);
-            try
-            {
-                await Init(user);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            await Init(user);
+
         }
 
         /// <summary>
@@ -93,26 +88,9 @@ namespace MonsterSpell.Core
         {
             Debug.Assert(user != null);
 
-            currentPlayer = new Player(user);
-            try
-            {
-                await currentPlayer.ConnectAsync(ServerAddress, DEFAULT_PORT);
+            currentPlayer = new UserPlayer(user, database);
 
-                currentPlayer.OnOpponentRemoved += OnOpponentRemoved;
-
-                while (currentPlayer.Connected)
-                {
-                    string messageType = await streamReader.ReadLineAsync();
-                    string data = await streamReader.ReadLineAsync();
-
-                    ProcessMessage(int.Parse(messageType), data);
-                }
-            }
-            catch (SocketException ex)
-            {
-                currentPlayer = null;
-                throw new ClientException("Cannot connect to server!", ex);
-            }
+            // TODO: Listen for messages
         }
 
         private static void OnOpponentRemoved(Events.OponentChangedEventArgs eventArgs)
@@ -120,7 +98,7 @@ namespace MonsterSpell.Core
             if (currentPlayer.Opponents.Length < MAX_OPPONENTS_COUNT)
             {
                 var randomId = random.Next(0, int.MaxValue);
-                var bot = new Bot(randomId, currentPlayer);
+                var bot = new Bot("", null, currentPlayer);
                 currentPlayer.AddOpponent(bot);
             }
         }

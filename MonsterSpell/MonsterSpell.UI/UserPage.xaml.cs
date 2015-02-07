@@ -1,4 +1,5 @@
-﻿using MonsterSpell.Core.DBModels;
+﻿using MonsterSpell.Core;
+using MonsterSpell.Core.DBModels;
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -29,11 +30,7 @@ namespace MonsterSpell.UI
 
         private void LoadCharacters()
         {
-            List<User> items = new List<User>();
-            items.Add(new User("qwe", "qwe"));
-            items.Add(new User("qwe", "rwer"));
-            items.Add(new User("qwe", "fdsfsdf"));
-            CharactersListBox.ItemsSource = items;
+            CharactersListBox.ItemsSource = GameEngine.Player.Characters;
         }
 
         private void SwitchToCreateCharacterPage(object sender, System.Windows.RoutedEventArgs e)

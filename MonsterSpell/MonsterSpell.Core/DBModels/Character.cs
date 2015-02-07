@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,16 @@ namespace MonsterSpell.Core.DBModels
     {
         private string name = string.Empty;
 
-        public Character(int id, string name)
+        public Character(string userId, string name)
         {
-            this.Id = id;
+            this.UserId = userId;
             this.Name = name;
         }
 
-        public int Id { get; set; }
+        public ObjectId Id { get; set; }
+
+        public string UserId { get; private set; }
+
         public string Name
         {
             get { return this.name; }

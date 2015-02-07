@@ -12,38 +12,35 @@ namespace MonsterSpell.Core.Players
     /// <summary>
     /// Base player class
     /// </summary>
-    public class Player : TcpClient, IPlayer
+    public abstract class Player : IPlayer
     {
         private List<IPlayer> opponents = new List<IPlayer>();
-
-        public Player(int id)
-        {
-            this.Id = id;
-            this.opponents = new List<IPlayer>();
-        }
-
-        public Player(User user)
+        private List<Characters.Character> characters =
+            new List<Characters.Character>();
+        
+        protected Player(User user)
         {
             if (user == null)
                 throw new ArgumentNullException("User cannot be null!");
-            this.Id = user.Id;
+            this.UserId = user.Id.ToString();
             this.NickName = user.Username;
             this.opponents = new List<IPlayer>();
         }
 
-        public delegate void OpponentChangedHandler(OponentChangedEventArgs eventArgs);
+        protected Player(string id, IComputerCharacter character)
+        {
+            this.UserId = id;
+            this.opponents = new List<IPlayer>();
+            this.characters = new List<Characters.Character>();
+        }
 
-        public event OpponentChangedHandler OnOpponentAdded;
-
-        public event OpponentChangedHandler OnOpponentRemoved;
-
-        public int Id { get; private set; }
+        public string UserId { get; private set; }
 
         public string NickName { get; private set; }
 
-        public ICharacter[] Characters
+        public Characters.Character[] Characters
         {
-            get { throw new NotImplementedException(); }
+            get { return this.characters.ToArray(); }
         }
 
         public IPlayer[] Opponents
@@ -51,10 +48,9 @@ namespace MonsterSpell.Core.Players
             get { return this.opponents.ToArray(); }
         }
 
-        public void AddOpponent(IPlayer opponent)
+        public virtual void AddOpponent(IPlayer opponent)
         {
             this.opponents.Add(opponent);
-            OnOpponentAdded(new OponentChangedEventArgs(opponent));
         }
 
         public virtual void Attack(IPlayer opponent)
@@ -62,14 +58,14 @@ namespace MonsterSpell.Core.Players
             throw new NotImplementedException();
         }
 
-        public void AddCharacter(ICharacter character)
+        public virtual void AddCharacter(Characters.Character character)
         {
-            throw new NotImplementedException();
+            this.characters.Add(character);
         }
 
-        public void DeleteCharacter(ICharacter character)
+        public virtual void DeleteCharacter(Characters.Character character)
         {
-            throw new NotImplementedException();
+            this.characters.Remove(character);
         }
     }
 }

@@ -6,7 +6,7 @@
 	mc:Ignorable="d"
     Title="LoginPage">
 
-    <Grid>
+    <Grid Visibility="Visible">
         <Rectangle StrokeThickness="4">
             <Rectangle.Fill>
                 <ImageBrush ImageSource=".\Images\forest_guardian_by_artek92-d610d1r.jpg" />

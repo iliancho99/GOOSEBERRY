@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using MonsterSpell.Core.Interfaces;
+using MonsterSpell.Core.Items;
 using MonsterSpell.Core.Items;
 
 namespace MonsterSpell.Core.Characters
@@ -19,8 +19,11 @@ namespace MonsterSpell.Core.Characters
         private List<IItem> inventory = new List<IItem>();
         private List<IEquipable> equippedItems = new List<IEquipable>();
 
-        protected Character(string id)
-            : base(id) { }
+        protected Character(string id, CharacterType type)
+            : base(id)
+        {
+            this.Type = type;
+        }
 
         /// <summary>
         /// Character's name
@@ -94,6 +97,8 @@ namespace MonsterSpell.Core.Characters
         /// Character's current position on the map
         /// </summary>
         public Position Position { get; private set; }
+
+        public CharacterType Type { get; private set; }
 
         /// <summary>
         /// All items in the character's inventory

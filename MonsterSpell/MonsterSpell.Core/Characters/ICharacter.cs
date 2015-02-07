@@ -1,10 +1,11 @@
-﻿using MonsterSpell.Core.Interfaces;
+﻿using MonsterSpell.Core.Items;
 using MonsterSpell.Core.Items;
 
 namespace MonsterSpell.Core.Characters
 {
     public interface ICharacter
     {
+        CharacterType Type { get; }
         void AddItem(IItem item);
         int AttackPoints { get; set; }
         int DefensePoints { get; set; }
