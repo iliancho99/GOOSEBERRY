@@ -50,9 +50,7 @@
     <Compile Include="Characters\ICharacter.cs" />
     <Compile Include="Characters\IComputerCharacter.cs" />
     <Compile Include="Characters\Warrior.cs" />
-    <Compile Include="ClientException.cs" />
     <Compile Include="DBModels\Character.cs" />
-    <Compile Include="Events\OponentChangedEventArgs.cs" />
     <Compile Include="GameElement.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="Items\IEquipable.cs" />

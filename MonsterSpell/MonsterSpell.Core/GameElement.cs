@@ -19,8 +19,6 @@ namespace MonsterSpell.Core
         /// <summary>
         /// Element ID
         /// </summary>
-        /// 
-        /// new comment
         public string ID { get; private set; }
     }
 }

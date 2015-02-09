@@ -5,7 +5,7 @@
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 	  mc:Ignorable="d" 
 	  d:DesignHeight="300" d:DesignWidth="300"
-	Title="CharacterCreationPage">
+      Title="CharacterCreationPage">
 	<Page.Resources>
 		<Style TargetType="Grid">
 			<Style.Resources>
@@ -45,6 +45,7 @@
 		<Button Content="Create class" FontSize="20"
 				Width="181" Height="28" VerticalAlignment="Bottom"
 				HorizontalAlignment="Center"
-					Click="OnCreateCharacterClicked"/>
+                Margin="0 0 0 10"
+				Click="OnCreateCharacterClicked"/>
 	</Grid>
 </Page>

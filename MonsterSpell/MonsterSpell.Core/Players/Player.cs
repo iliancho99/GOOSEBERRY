@@ -1,6 +1,5 @@
 ﻿using MonsterSpell.Core.Characters;
 using MonsterSpell.Core.DBModels;
-using MonsterSpell.Core.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;

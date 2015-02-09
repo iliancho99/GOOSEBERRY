@@ -1,9 +1,4 @@
 ﻿using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonsterSpell.Core.DBModels
 {
@@ -11,25 +6,19 @@ namespace MonsterSpell.Core.DBModels
     {
         private string name = string.Empty;
 
-        public Character(string userId, string name)
+        public Character(string characterId, string ownerId, string name)
         {
-            this.UserId = userId;
+            this.CharacterId = characterId;
+            this.OwnerId = ownerId;
             this.Name = name;
         }
 
         public ObjectId Id { get; set; }
 
-        public string UserId { get; private set; }
+        public string CharacterId { get; set; }
 
-        public string Name
-        {
-            get { return this.name; }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                    throw new ArgumentNullException("Name cannot be null or empty!");
-                this.name = value;
-            }
-        }
+        public string OwnerId { get; set; }
+
+        public string Name { get; set; }
     }
 }

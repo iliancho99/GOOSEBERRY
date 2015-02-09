@@ -20,6 +20,9 @@ namespace MonsterSpell.Core
         private static MongoCollection<User> usersCollection = null;
         private static User loggedInUser = null;
 
+        /// <summary>
+        /// Connects to the db server
+        /// </summary>
         static UserManager()
         {
             var mongoClient = new MongoClient(DATABASE_URI);
@@ -28,36 +31,25 @@ namespace MonsterSpell.Core
             usersCollection = database.GetCollection<User>("users");
         }
 
+        /// <summary>
+        /// Returns the current logged in user or null if not logged in
+        /// </summary>
         public static User LoggedInUser
         {
             get { return loggedInUser; }
         }
 
         /// <summary>
-        /// UserManager needs MongoCollection to work with.
+        /// Logs in with the provided user information
         /// </summary>
-        public static MongoCollection<User> Users
-        {
-            get { return usersCollection; }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentNullException("Cannot set null collection!");
-                usersCollection = value;
-            }
-        }
-
-        /// <summary>
-        /// Connects to mongodb and login with the given information.
-        /// </summary>
-        /// <param name="username">Username to login with.</param>
-        /// <param name="password">Password to login with.</param>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <param name="username">Username to login with</param>
+        /// <param name="password">Password to login with</param>
         /// <exception cref="ArgumentNullException"></exception>
         public static void Login(string username, string password)
         {
-            if (usersCollection == null)
-                throw new InvalidOperationException("Please set user collection first!");
+            Debug.Assert(usersCollection != null,
+                "This shoudn't happen! It can be db server error.");
+
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 throw new ArgumentNullException("Cannot login with empty username/password!");
 
@@ -70,38 +62,36 @@ namespace MonsterSpell.Core
         }
 
         /// <summary>
-        /// Connects to mongodb and inserts new user with given information.
+        /// Registers new user with the provided informatio
         /// </summary>
-        /// <param name="username">Username to register with.</param>
-        /// <param name="password">Password to register with.</param>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <param name="username">Username to register with</param>
+        /// <param name="password">Password to register with</param>
         /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
         public static void Register(string username, string password)
         {
-            Debug.Assert(usersCollection != null);
+            Debug.Assert(usersCollection != null,
+                "This shoudn't happen! It can be db server error.");
 
-            if (usersCollection == null)
-                throw new InvalidOperationException("Please set user collection first!");
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
                 throw new ArgumentNullException("Cannot register with empty username/password!");
+            }
 
-            var userWithSameNameExists = usersCollection.AsQueryable<User>()
-                .Any(x => x.Username == username);
-            if (userWithSameNameExists)
+            var findByUserNameQuery = Query<User>.EQ(e => e.Username, username);
+            if (usersCollection.FindOne(findByUserNameQuery) != null)
             {
                 throw new InvalidOperationException("There is already user with this name");
             }
 
-            var userTemplate = new User(username, GetMD5(password));
-            usersCollection.Insert(userTemplate);
-            var query = Query<User>.EQ(e => e.Id, userTemplate.Id);
-            var user = usersCollection.FindOne(query);
+            var user = new User(username, GetMD5(password));
+            usersCollection.Insert(user);
             user.Password = string.Empty;
             loggedInUser = user;
         }
 
         /// <summary>
-        /// Log out the current logged in user
+        /// Logs out the current logged in user
         /// </summary>
         public static void Logout()
         {
