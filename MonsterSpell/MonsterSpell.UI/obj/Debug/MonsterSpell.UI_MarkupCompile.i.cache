@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\obj\Debug\
 MonsterSpell.UI
 none
 false
 DEBUG;TRACE
-D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\App.xaml
+C:\Users\iliyan\Desktop\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\App.xaml
 5292741785
 
-13-981751737
-13-795155209
+13-1862561727
+132005981764
 CharacterCreationPage.xaml;GamePlayPage.xaml;LoginPage.xaml;PageSwitcher.xaml;UserPage.xaml;
 
 False

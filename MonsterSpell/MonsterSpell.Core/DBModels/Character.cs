@@ -2,7 +2,7 @@
 
 namespace MonsterSpell.Core.DBModels
 {
-    internal class Character
+    public class Character
     {
         private string name = string.Empty;
 
