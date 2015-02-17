@@ -26,10 +26,6 @@ namespace MonsterSpell.UI
         public CharacterCreationPage()
         {
             InitializeComponent();
-
-            // Load the values from CharacterType enum
-            // We can add images for different types
-            this.classListView.ItemsSource = Enum.GetNames(typeof(CharacterType));
         }
 
         private void OnCreateCharacterClicked(object sender, RoutedEventArgs e)
@@ -37,7 +33,7 @@ namespace MonsterSpell.UI
             // TODO : Create character in the current player with the selected class
             // Page listview contains information for the selected class
             // Return to the previous page
-            (Application.Current.MainWindow as NavigationWindow).GoBack();
+            //(Application.Current.MainWindow as NavigationWindow).GoBack();
         }
     }
 }

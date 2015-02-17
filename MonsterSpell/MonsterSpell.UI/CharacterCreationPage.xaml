@@ -4,48 +4,49 @@
 	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 	  mc:Ignorable="d" 
-	  d:DesignHeight="300" d:DesignWidth="300"
+	  d:DesignHeight="800" d:DesignWidth="600"
       Title="CharacterCreationPage">
-	<Page.Resources>
-		<Style TargetType="Grid">
-			<Style.Resources>
-				<Style TargetType="Grid">
-					<Setter Property="Visibility" Value="Hidden"/>
-					<Style.Triggers>
-						<Trigger Property="Visibility" Value="Visible">
-							<Trigger.EnterActions>
-								<BeginStoryboard>
-									<Storyboard>
-										<DoubleAnimation Storyboard.TargetProperty="Opacity"
+    <Page.Resources>
+        <Style TargetType="Grid">
+            <Style.Resources>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                    <Style.Triggers>
+                        <Trigger Property="Visibility" Value="Visible">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
 							From="0.0" To="1.0" Duration="0:0:0.2"/>
-									</Storyboard>
-								</BeginStoryboard>
-							</Trigger.EnterActions>
-						</Trigger>
-					</Style.Triggers>
-				</Style>
-			</Style.Resources>
-		</Style>
-	</Page.Resources>
-	<Grid>
-		<Rectangle StrokeThickness="4">
-			<Rectangle.Fill>
-				<ImageBrush Stretch="UniformToFill" ImageSource=".\Images\coniferous-forest.jpg" />
-			</Rectangle.Fill>
-		</Rectangle>
-		<Label Content="Select class" HorizontalAlignment="Center" FontFamily="Segoe Print" FontSize="20" FontWeight="ExtraBold"/>
-		<ListView Margin="40 40 40 70" x:Name="classListView">
-			
-		</ListView>
-		<Label Content="Character name" HorizontalAlignment="Left"
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Rectangle StrokeThickness="4">
+            <Rectangle.Fill>
+                <ImageBrush Stretch="UniformToFill" ImageSource=".\Images\coniferous-forest.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image Source="Images/Mage.jpg" Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25"/>
+        <Image Source="Images/Warrior.jpg" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Content="Select class" HorizontalAlignment="Center" FontFamily="Segoe Print" FontSize="20" FontWeight="ExtraBold"/>
+
+
+        <Label Content="Character name" HorizontalAlignment="Left"
 			   VerticalAlignment="Bottom" Margin="40 0 0 35"
 			   FontFamily="Segoe Print" FontSize="15" FontWeight="ExtraBold">
-			
-		</Label>
-		<Button Content="Create class" FontSize="20"
+
+        </Label>
+        <Button Content="Create class" FontSize="20"
 				Width="181" Height="28" VerticalAlignment="Bottom"
 				HorizontalAlignment="Center"
                 Margin="0 0 0 10"
 				Click="OnCreateCharacterClicked"/>
-	</Grid>
+    </Grid>
 </Page>
