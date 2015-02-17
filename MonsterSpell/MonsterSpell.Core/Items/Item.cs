@@ -15,24 +15,14 @@ namespace MonsterSpell.Core.Items
             this.AttackPoints = attackPoints;
         }
 
-        /// <summary>
-        /// Item name
-        /// </summary>
         public string Name { get; private set; }
 
-        /// <summary>
-        /// Item health points effect
-        /// </summary>
         public int HealthPoints { get; private set; }
 
-        /// <summary>
-        /// Item mana points effect
-        /// </summary>
         public int ManaPoints { get; private set; }
 
-        /// <summary>
-        /// Item attack points effect
-        /// </summary>
         public int AttackPoints { get; private set; }
+
+        public int DefensePoints { get; private set; }
     }
 }

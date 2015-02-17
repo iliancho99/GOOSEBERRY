@@ -1,67 +1,81 @@
 ﻿using MonsterSpell.Core.Characters;
-using MonsterSpell.Core.DBModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using System.Net.Sockets;
+using System.Linq;
+using System.Runtime.Serialization;
 
 namespace MonsterSpell.Core.Players
 {
-    /// <summary>
-    /// Base player class
-    /// </summary>
-    public abstract class Player : IPlayer
+    [KnownType(typeof(Character))]
+    [KnownType(typeof(Warrior))]
+    [DataContract(Name = "Player")]
+    public class Player
     {
-        private List<IPlayer> opponents = new List<IPlayer>();
-        private List<Characters.Character> characters =
-            new List<Characters.Character>();
-        
-        protected Player(string userId, string nickName)
+        [DataMember(Name = "Characters")]
+        private List<ICharacter> characters = new List<ICharacter>();
+
+        public Player(params ICharacter[] characters)
         {
-            this.UserId = userId;
-            this.NickName = nickName;
+            if (characters.Any(x => x == null))
+            {
+                throw new ArgumentNullException("Please enter non null characters!");
+            }
+            this.characters.AddRange(characters);
         }
 
-        protected Player(string id, IComputerCharacter character)
+        public delegate void CharacterAddedHandler(ICharacter character);
+
+        public delegate void CharacterRemovedHandler(ICharacter character);
+
+        public event CharacterAddedHandler OnCharacterAdded;
+
+        public event CharacterRemovedHandler OnCharacterRemoved;
+
+        public static Player FromXml(Stream xml)
         {
-            this.UserId = id;
-            this.opponents = new List<IPlayer>();
-            this.characters = new List<Characters.Character>();
+            var serializer = new DataContractSerializer(typeof(Player));
+            var player = (Player)serializer.ReadObject(xml);
+            return player;
         }
 
-        public string UserId { get; private set; }
-
-        public string NickName { get; private set; }
-
-        public Characters.Character[] Characters
+        public string ToXml()
         {
-            get { return this.characters.ToArray(); }
+            using (var ms = new MemoryStream())
+            {
+                var serializer = new DataContractSerializer(typeof(Player));
+                serializer.WriteObject(ms, this);
+                ms.Position = 0;
+
+                var streamReader = new StreamReader(ms);
+                return streamReader.ReadToEnd();
+            }
         }
 
-        public IPlayer[] Opponents
+        [IgnoreDataMember]
+        public IEnumerable<ICharacter> Characters
         {
-            get { return this.opponents.ToArray(); }
+            get { return this.characters; }
         }
 
-        public virtual void AddOpponent(IPlayer opponent)
+        public virtual void AddCharacter(ICharacter character)
         {
-            this.opponents.Add(opponent);
-        }
-
-        public virtual void Attack(IPlayer opponent)
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual void AddCharacter(Characters.Character character)
-        {
+            if (character == null)
+            {
+                throw new ArgumentNullException("Please enter non null character!");
+            }
             this.characters.Add(character);
+            OnCharacterAdded(character);
         }
 
-        public virtual void DeleteCharacter(Characters.Character character)
+        public virtual bool RemoveCharacter(ICharacter character)
         {
-            this.characters.Remove(character);
+            bool isRemoved = this.characters.Remove(character);
+            if (isRemoved)
+            {
+                OnCharacterRemoved(character);
+            }
+            return isRemoved;
         }
     }
 }

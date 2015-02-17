@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace MonsterSpell.Core
 {
     /// <summary>
     /// Base class for all game objects
     /// </summary>
+    [DataContract()]
     public abstract class GameElement
     {
         protected GameElement(string id)
@@ -13,12 +15,12 @@ namespace MonsterSpell.Core
             {
                 throw new ArgumentNullException("ID cannot be null or empty!");
             }
-            this.ID = id;
+            this.Id = id;
         }
 
         /// <summary>
         /// Element ID
         /// </summary>
-        public string ID { get; private set; }
+        public string Id { get; private set; }
     }
 }

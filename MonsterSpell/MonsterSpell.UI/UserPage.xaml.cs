@@ -1,12 +1,7 @@
 ﻿using MonsterSpell.Core;
-using MonsterSpell.Core.DBModels;
-using System;
-using System.Collections.Generic;
+using MonsterSpell.Core.Characters;
 using System.Diagnostics;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Navigation;
 
 namespace MonsterSpell.UI
 {
@@ -18,6 +13,7 @@ namespace MonsterSpell.UI
         public UserPage()
         {
             InitializeComponent();
+
             this.CharactersListBox.SelectionChanged += (sender, args) =>
             {
                 //var listView = sender as ListView;
@@ -25,18 +21,18 @@ namespace MonsterSpell.UI
                 //this.Navigate(gamePlayPage);
             };
 
-            LoadCharacters();
-        }
-
-        private void LoadCharacters()
-        {
-            //Debug.Assert(GameEngine.Player != null);
-            //CharactersListBox.ItemsSource = GameEngine.Player.Characters;
+            Debug.Assert(GameEngine.Player != null);
+            GameEngine.Player.OnCharacterAdded += character =>
+                this.CharactersListBox.Items.Refresh();
+            GameEngine.Player.OnCharacterRemoved += character =>
+                this.CharactersListBox.Items.Refresh();
+            CharactersListBox.ItemsSource = GameEngine.Player.Characters;
         }
 
         private void OpenCharacterCreationPage(object sender, System.Windows.RoutedEventArgs e)
         {
-            (Application.Current.MainWindow as NavigationWindow).Navigate(new CharacterCreationPage());
+            //(Application.Current.MainWindow as NavigationWindow).Navigate(new CharacterCreationPage());
+            GameEngine.Player.AddCharacter(new Warrior("NoName"));
         }
     }
 }

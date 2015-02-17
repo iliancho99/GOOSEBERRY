@@ -1,13 +1,15 @@
-﻿using System;
+﻿using MonsterSpell.Core.Items;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using MonsterSpell.Core.Items;
+using System.Runtime.Serialization;
 
 namespace MonsterSpell.Core.Characters
 {
     /// <summary>
     /// Base class for all characters.
     /// </summary>
+    [DataContract(Name = "Character")]
     public abstract class Character : GameElement, ICharacter
     {
         private string name = string.Empty;
@@ -15,18 +17,25 @@ namespace MonsterSpell.Core.Characters
         private int manaPoints = 0;
         private int attackPoints = 0;
         private int defensePoints = 0;
+        [DataMember]
         private List<IItem> inventory = new List<IItem>();
-        private List<IEquipable> equippedItems = new List<IEquipable>();
 
-        protected Character(string id, CharacterType type)
+        protected Character(string id, CharacterType type, int healthPoints,
+            int manaPoints, int attackPoints, int defensePoints, string name)
             : base(id)
         {
             this.Type = type;
+            this.HealthPoints = healthPoints;
+            this.ManaPoints = manaPoints;
+            this.AttackPoints = attackPoints;
+            this.DefensePoints = defensePoints;
+            this.Name = name;
         }
 
         /// <summary>
         /// Character's name
         /// </summary>
+        [DataMember]
         public string Name
         {
             get { return this.name; }
@@ -43,6 +52,7 @@ namespace MonsterSpell.Core.Characters
         /// <summary>
         /// Character's health points
         /// </summary>
+        [DataMember]
         public int HealthPoints
         {
             get { return this.healthPoints; }
@@ -56,6 +66,7 @@ namespace MonsterSpell.Core.Characters
         /// <summary>
         /// Character's attack points
         /// </summary>
+        [DataMember]
         public int AttackPoints
         {
             get { return this.attackPoints; }
@@ -69,6 +80,7 @@ namespace MonsterSpell.Core.Characters
         /// <summary>
         /// Character's defense points
         /// </summary>
+        [DataMember]
         public int DefensePoints
         {
             get { return this.defensePoints; }
@@ -82,6 +94,7 @@ namespace MonsterSpell.Core.Characters
         /// <summary>
         /// Character's mana points
         /// </summary>
+        [DataMember]
         public int ManaPoints
         {
             get { return this.manaPoints; }
@@ -93,26 +106,18 @@ namespace MonsterSpell.Core.Characters
         }
 
         /// <summary>
-        /// Character's current position on the map
+        /// Character's type
         /// </summary>
-        public Position Position { get; private set; }
-
+        [DataMember]
         public CharacterType Type { get; private set; }
 
         /// <summary>
         /// All items in the character's inventory
         /// </summary>
+        [IgnoreDataMember]
         public IItem[] Inventory
         {
             get { return this.inventory.ToArray(); }
-        }
-
-        /// <summary>
-        /// All equipped items on the character
-        /// </summary>
-        public IEquipable[] EquippedItems
-        {
-            get { return this.equippedItems.ToArray(); }
         }
 
         /// <summary>
@@ -121,56 +126,43 @@ namespace MonsterSpell.Core.Characters
         /// <param name="item">Item to be added</param>
         public virtual void AddItem(IItem item)
         {
-            // TODO: To be implemented!
-            throw new NotImplementedException();
+            if (item == null)
+            {
+                throw new ArgumentNullException("Cannot add null item!");
+            }
+            this.inventory.Add(item);
+            ApplyItemEffects(item);
         }
 
         /// <summary>
         /// Removes item from the character's inventory.
         /// </summary>
         /// <param name="item">Item to be removed</param>
-        public virtual void RemoveItem(IItem item)
+        public virtual bool RemoveItem(IItem item)
         {
-            // TODO: To be implemented!
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Equips item from the inventory. Applies its effects on the character.
-        /// </summary>
-        /// <param name="item">Item to be equipped</param>
-        public virtual void EquipItem(IEquipable item)
-        {
-            // TODO: To be implemented!
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Unequips item from the inventory. Removes its effects from the character.
-        /// </summary>
-        /// <param name="item">Item to be unequipped</param>
-        public virtual void UnequipItem(IEquipable item)
-        {
-            // TODO: To be implemented!
-            throw new NotImplementedException();
+            RemoveItemEffects(item);
+            return this.inventory.Remove(item);
         }
 
         public override string ToString()
         {
-            return string.Format("ID: {0} Name: {1} Level: {2}",
-                this.ID, this.Name, 3); // Hardcode for now
+            return string.Format("{0} | {1}", this.Name, this.Type);
         }
 
-        protected virtual void ApplyItemEffects()
+        protected virtual void ApplyItemEffects(IItem item)
         {
-            // TODO: To be implemented!
-            throw new NotImplementedException();
+            this.HealthPoints += item.HealthPoints;
+            this.ManaPoints += item.ManaPoints;
+            this.AttackPoints += item.AttackPoints;
+            this.DefensePoints += item.DefensePoints;
         }
 
-        protected virtual void RemoveItemEffects()
+        protected virtual void RemoveItemEffects(IItem item)
         {
-            // TODO: To be implemented!
-            throw new NotImplementedException();
+            this.HealthPoints -= item.HealthPoints;
+            this.ManaPoints -= item.ManaPoints;
+            this.AttackPoints -= item.AttackPoints;
+            this.DefensePoints -= item.DefensePoints;
         }
 
         protected void ValidateNumericInput(int input)
