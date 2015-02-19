@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MonsterSpell.Core.Characters;
+using System;
 using System.Windows.Controls;
 
 namespace MonsterSpell.UI
@@ -8,9 +9,16 @@ namespace MonsterSpell.UI
     /// </summary>
     public partial class GamePlayPage : Page
     {
-        public GamePlayPage()
+        private ICharacter currentCharacter = null;
+
+        public GamePlayPage(ICharacter character)
         {
             InitializeComponent();
+
+            if (character == null)
+            {
+                throw new ArgumentNullException("Character cannot be null!");
+            }
         }
     }
 }

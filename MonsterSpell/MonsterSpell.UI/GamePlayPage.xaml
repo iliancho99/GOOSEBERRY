@@ -8,6 +8,15 @@
 	Title="GamePlayPage">
 
     <Grid>
-        
+        <Rectangle StrokeThickness="4">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource=".\Images\forest_guardian_by_artek92-d610d1r.jpg" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Width="50" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="0 20 20 0"
+                Background="Transparent" RenderOptions.BitmapScalingMode="HighQuality">
+            <Image Source=".\Images\2deb9018af9a9f6c489bf08d21208ffax.jpg"></Image>
+        </Button>
     </Grid>
 </Page>
