@@ -10,8 +10,8 @@ namespace MonsterSpell.Core.Characters
         public const int DEFAULT_AP = 50;
         public const int DEFAULT_DP = 100;
 
-        public Warrior(string name)
-            : base("warrior", CharacterType.Warrior, DEFAULT_HP,
+        public Warrior(string name, string id)
+            : base(id, CharacterType.Warrior, DEFAULT_HP,
             DEFAULT_MP, DEFAULT_AP, DEFAULT_DP, name) { }
     }
 }

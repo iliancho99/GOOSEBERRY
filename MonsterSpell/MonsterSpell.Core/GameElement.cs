@@ -21,6 +21,8 @@ namespace MonsterSpell.Core
         /// <summary>
         /// Element ID
         /// </summary>
+        
+        [DataMember]
         public string Id { get; private set; }
     }
 }
