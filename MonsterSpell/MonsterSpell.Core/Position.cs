@@ -17,7 +17,7 @@ namespace MonsterSpell.Core
 
         public bool Equals(Position other)
         {
-            return this.X == other.X && this.Y == other.Y;
+            return (this.X == other.X) && (this.Y == other.Y);
         }
     }
 }

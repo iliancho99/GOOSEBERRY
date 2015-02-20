@@ -34,7 +34,9 @@
             </Rectangle.Fill>
         </Rectangle>
         <Image Source="Images/Mage.jpg" Width="160" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25"/>
+        <TextBlock Width="160" HorizontalAlignment="Left" Height="50" Margin="25,538,0,212" FontSize="30" TextAlignment="Center"> Mage</TextBlock>
         <Image Source="Images/Warrior.jpg" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock Width="160" HorizontalAlignment="Left" Height="50" Margin="400,536,0,214" FontSize="30" TextAlignment="Center"> Warrior</TextBlock>
         <Label Content="Select class" HorizontalAlignment="Center" FontFamily="Segoe Print" FontSize="20" FontWeight="ExtraBold"/>
 
 
