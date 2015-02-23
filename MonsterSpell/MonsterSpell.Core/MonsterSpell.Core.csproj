@@ -51,7 +51,6 @@
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Monster\Monster.cs" />
-    <Compile Include="Monster\MonsterType.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

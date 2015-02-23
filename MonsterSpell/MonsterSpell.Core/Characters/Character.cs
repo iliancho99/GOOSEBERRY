@@ -174,5 +174,11 @@ namespace MonsterSpell.Core.Characters
                     string.Format("{0} cannot be negative number!", propertyName));
             }
         }
+
+        public void AttackCharacter(ICharacter character)
+        {
+            Random randomAttackIndex = new Random();
+            character.HealthPoints -= (int)((character.DefensePoints - this.AttackPoints) * randomAttackIndex.NextDouble());
+        }
     }
 }
