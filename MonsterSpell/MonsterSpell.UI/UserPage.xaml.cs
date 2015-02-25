@@ -9,6 +9,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using MonsterSpell.Core.Characters.Warrior;
 
 namespace MonsterSpell.UI
 {

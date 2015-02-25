@@ -4,9 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="900" d:DesignWidth="1440"
 	Title="GamePlayPage">
-
+   
     <Grid>
         <Rectangle StrokeThickness="4">
             <Rectangle.Fill>
@@ -14,9 +14,73 @@
             </Rectangle.Fill>
         </Rectangle>
         <Button Width="50" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Margin="0 20 20 0"
+                Margin="0 20 20 0" Click="Back"
                 Background="Transparent" RenderOptions.BitmapScalingMode="HighQuality">
             <Image Source=".\Images\2deb9018af9a9f6c489bf08d21208ffax.jpg"></Image>
         </Button>
+
+        <Image x:Name="characterImage" HorizontalAlignment="Center" Height="278" Margin="0 0 0 30" VerticalAlignment="Bottom" Width="182"/>
+        <ProgressBar x:Name="manaPoints" HorizontalAlignment="Center" Height="20" Width="200" VerticalAlignment="Bottom" Margin="0 0 0 288" Background="Transparent" Value="20" Foreground="Blue"/>
+        <ProgressBar x:Name="healthPoints" HorizontalAlignment="Center" Height="20" Width="200" VerticalAlignment="Bottom" Margin="0 0 0 310" Background="Transparent" Value="20" Foreground="Red"/>
+
+        <DataGrid BorderBrush="Transparent" x:Name="SpellsContainer"  VerticalAlignment="Bottom" GridLinesVisibility="None"
+                  Background="Transparent" RowBackground="Transparent" Width="200" Height="400"
+                  HorizontalAlignment="Right" Margin="0 0 0 20" ItemsSource="{Binding Path=SpellsIcons}" AutoGenerateColumns="False" HeadersVisibility="None"
+                  MouseUp="SpellsContainer_SelectionChanged">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected"
+                        Value="True">
+                            <Setter Property="Background"
+                        Value="Transparent" />
+                            <Setter Property="BorderBrush"
+                        Value="Transparent" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected"
+                        Value="True">
+                            <Setter Property="BorderBrush"
+                        Value="Transparent" />
+                            <Setter Property="BorderThickness"
+                        Value="0" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+              
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Cursor="Arrow" Width="100" BorderThickness="0" Background="Transparent" IsReadOnly="True"
+                                     BorderBrush="Transparent" VerticalAlignment="Center" FontSize="20" Text="{Binding Path=Name}"></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="40" Source="{Binding Path=Bitmap}"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="20">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Cursor="Arrow" BorderBrush="Transparent" Background="Transparent" FontSize="20" IsReadOnly="True" BorderThickness="0"
+                                     VerticalAlignment="Center" Text="{Binding Path=CoolDown}"></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

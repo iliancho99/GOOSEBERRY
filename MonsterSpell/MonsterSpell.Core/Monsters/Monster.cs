@@ -1,12 +1,6 @@
-﻿using MonsterSpell.Core.Items;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.Serialization;
-using MonsterSpell.Core.Characters;
+﻿using MonsterSpell.Core.Characters;
 
-
-namespace MonsterSpell.Core.Monster
+namespace MonsterSpell.Core.Monsters
 {
     public abstract class Monster : Character
     {

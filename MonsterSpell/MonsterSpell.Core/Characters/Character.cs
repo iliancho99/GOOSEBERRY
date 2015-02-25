@@ -13,10 +13,10 @@ namespace MonsterSpell.Core.Characters
     public abstract class Character : GameElement, ICharacter
     {
         private string name = string.Empty;
-        private int healthPoints = 0;
-        private int manaPoints = 0;
-        private int attackPoints = 0;
-        private int defensePoints = 0;
+        private double healthPoints = 0;
+        private double manaPoints = 0;
+        private double attackPoints = 0;
+        private double defensePoints = 0;
         [DataMember]
         private List<IItem> inventory = new List<IItem>();
 
@@ -31,6 +31,8 @@ namespace MonsterSpell.Core.Characters
             this.DefensePoints = defensePoints;
             this.Name = name;
         }
+
+        public abstract ISpell[] Spells { get; }
 
         /// <summary>
         /// Character's name
@@ -53,7 +55,7 @@ namespace MonsterSpell.Core.Characters
         /// Character's health points
         /// </summary>
         [DataMember]
-        public int HealthPoints
+        public double HealthPoints
         {
             get { return this.healthPoints; }
             set
@@ -67,7 +69,7 @@ namespace MonsterSpell.Core.Characters
         /// Character's attack points
         /// </summary>
         [DataMember]
-        public int AttackPoints
+        public double AttackPoints
         {
             get { return this.attackPoints; }
             set
@@ -81,7 +83,7 @@ namespace MonsterSpell.Core.Characters
         /// Character's defense points
         /// </summary>
         [DataMember]
-        public int DefensePoints
+        public double DefensePoints
         {
             get { return this.defensePoints; }
             set
@@ -95,7 +97,7 @@ namespace MonsterSpell.Core.Characters
         /// Character's mana points
         /// </summary>
         [DataMember]
-        public int ManaPoints
+        public double ManaPoints
         {
             get { return this.manaPoints; }
             set
@@ -119,6 +121,7 @@ namespace MonsterSpell.Core.Characters
         {
             get { return this.inventory.ToArray(); }
         }
+
 
         /// <summary>
         /// Adds item to the character's inventory.
@@ -165,7 +168,7 @@ namespace MonsterSpell.Core.Characters
             this.DefensePoints -= item.DefensePoints;
         }
 
-        protected void ValidateNumericInput(int input)
+        protected void ValidateNumericInput(double input)
         {
             if (input < 0)
             {

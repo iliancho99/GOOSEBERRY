@@ -6,11 +6,12 @@ namespace MonsterSpell.Core.Characters
     {
         string Id { get; }
         void AddItem(IItem item);
-        int AttackPoints { get; set; }
-        int DefensePoints { get; set; }
-        int HealthPoints { get; set; }
+        double AttackPoints { get; set; }
+        double DefensePoints { get; set; }
+        double HealthPoints { get; set; }
         IItem[] Inventory { get; }
-        int ManaPoints { get; set; }
+        ISpell[] Spells { get; }
+        double ManaPoints { get; set; }
         string Name { get; set; }
         bool RemoveItem(IItem item);
         CharacterType Type { get; }

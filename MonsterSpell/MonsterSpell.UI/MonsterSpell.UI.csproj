@@ -65,6 +65,7 @@
     <Compile Include="GamePlayPage.xaml.cs">
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SpellIcon.cs" />
     <Compile Include="UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
@@ -132,6 +133,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\2deb9018af9a9f6c489bf08d21208ffax.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\class-warrior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\neo_redux_energy_type_icons_by_ilkcmp-d3innms.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

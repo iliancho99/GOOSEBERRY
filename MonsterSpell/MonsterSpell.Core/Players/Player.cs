@@ -1,4 +1,6 @@
 ﻿using MonsterSpell.Core.Characters;
+using MonsterSpell.Core.Characters.Warrior;
+using MonsterSpell.Core.Characters.Warrior.Spells;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,11 +11,15 @@ namespace MonsterSpell.Core.Players
 {
     [KnownType(typeof(Character))]
     [KnownType(typeof(Warrior))]
+    [KnownType(typeof(BrutalAxe))]
     [DataContract(Name = "Player")]
-    public class Player
+    public class Player : IPlayer
     {
         [DataMember(Name = "Characters")]
         private List<ICharacter> characters = new List<ICharacter>();
+        private Random random = new Random();
+        private IPlayer focusedPlayer = null;
+        private List<IPlayer> opponents = new List<IPlayer>();
 
         public Player(params ICharacter[] characters)
         {
@@ -31,6 +37,47 @@ namespace MonsterSpell.Core.Players
         public event CharacterAddedHandler OnCharacterAdded;
 
         public event CharacterRemovedHandler OnCharacterRemoved;
+
+        public ICharacter CurrentCharacter { get; private set; }
+
+        public IPlayer[] Opponents { get { return this.opponents.ToArray(); } }
+
+        public void FocusOpponent(IPlayer opponent)
+        {
+            if (opponent == null)
+            {
+                throw new ArgumentNullException("Cannot focus null player!");
+            }
+
+            this.focusedPlayer = opponent;
+        }
+
+        public void CastSpell(ISpell spell)
+        {
+            if (spell.HealDamage > 0)
+            {
+                double randomMultiplyer = this.random.NextDouble();
+                double randomHealingEffect = randomMultiplyer * spell.HealDamage;
+                this.CurrentCharacter.HealthPoints += randomHealingEffect;
+            }
+            else if (spell.AttackDamage > 0)
+            {
+                double playerMultiplyer = this.random.NextDouble();
+                double opponentMultiplyer = this.random.NextDouble();
+                double damage = (this.CurrentCharacter.AttackPoints + spell.AttackDamage) * playerMultiplyer;
+
+                if (focusedPlayer == null)
+                {
+                    throw new InvalidOperationException("Cannot attack null target!");
+                }
+                focusedPlayer.OnAttacked(spell, this, damage);
+            }
+        }
+
+        public void OnAttacked(ISpell spell, IPlayer player, double damage)
+        {
+            throw new NotImplementedException();
+        }
 
         public static Player FromXml(Stream xml)
         {
