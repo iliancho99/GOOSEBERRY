@@ -89,9 +89,9 @@ namespace MonsterSpell.UI
 
         private void OpenCharacterCreationPage(object sender, System.Windows.RoutedEventArgs e)
         {
-            //(Application.Current.MainWindow as NavigationWindow).Navigate(new CharacterCreationPage());
+            (Application.Current.MainWindow as NavigationWindow).Navigate(new CharacterCreationPage());
             var random = new Random();
-            GameEngine.Player.AddCharacter(new Warrior("NoName", random.Next(0, int.MaxValue).ToString()));
+            GameEngine.Player.AddCharacter(new Warrior("", random.Next(0, int.MaxValue).ToString()));
         }
 
         private void OnCharactersListBoxSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

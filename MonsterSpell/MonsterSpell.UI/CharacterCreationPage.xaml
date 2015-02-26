@@ -45,6 +45,7 @@
 			   FontFamily="Segoe Print" FontSize="15" FontWeight="ExtraBold">
 
         </Label>
+       
         <Button Content="Create class" FontSize="20"
 				Width="181" Height="28" VerticalAlignment="Bottom"
 				HorizontalAlignment="Center"

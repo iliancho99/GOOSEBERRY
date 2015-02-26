@@ -140,6 +140,9 @@
   <ItemGroup>
     <Resource Include="Images\neo_redux_energy_type_icons_by_ilkcmp-d3innms.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MageAndWarrior.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

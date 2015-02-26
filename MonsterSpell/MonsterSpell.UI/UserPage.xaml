@@ -51,7 +51,7 @@
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image Width="50" Height="50" Source="D:\Programming\GOOSEBERRY\MonsterSpell\MonsterSpell.UI\Images\coniferous-forest.jpg" />
+                                    <Image Width="50" Height="50" Source="Images/MageAndWarrior.jpg" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
