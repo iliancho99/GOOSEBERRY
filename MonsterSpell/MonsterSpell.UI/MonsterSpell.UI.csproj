@@ -66,6 +66,7 @@
       <DependentUpon>GamePlayPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpellIcon.cs" />
+    <Compile Include="UserName.cs" />
     <Compile Include="UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>

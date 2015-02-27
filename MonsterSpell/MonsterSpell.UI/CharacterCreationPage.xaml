@@ -41,11 +41,16 @@
 
 
         <Label Content="Character name" HorizontalAlignment="Left"
-			   VerticalAlignment="Bottom" Margin="40 0 0 35"
+			   VerticalAlignment="Bottom" Margin="40,0,0,59"
 			   FontFamily="Segoe Print" FontSize="15" FontWeight="ExtraBold">
 
         </Label>
-       
+        <TextBox HorizontalAlignment="Left"
+			   VerticalAlignment="Bottom" Margin="177,0,0,59"
+			   FontFamily="Segoe Print" FontSize="15" FontWeight="ExtraBold" Width="115" Background="Transparent" Height="36" Name="UserNameInput">
+
+        </TextBox>
+
         <Button Content="Create class" FontSize="20"
 				Width="181" Height="28" VerticalAlignment="Bottom"
 				HorizontalAlignment="Center"

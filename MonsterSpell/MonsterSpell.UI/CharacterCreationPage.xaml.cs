@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MonsterSpell.Core.Characters.Warrior;
 
 namespace MonsterSpell.UI
 {
@@ -30,10 +31,10 @@ namespace MonsterSpell.UI
 
         private void OnCreateCharacterClicked(object sender, RoutedEventArgs e)
         {
-            // TODO : Create character in the current player with the selected class
-            // Page listview contains information for the selected class
-            // Return to the previous page
-            //(Application.Current.MainWindow as NavigationWindow).GoBack();
+            var random = new Random();
+            GameEngine.Player.AddCharacter(new Warrior(this.UserNameInput.Text, random.Next(0, int.MaxValue).ToString()));
+            (Application.Current.MainWindow as NavigationWindow).Navigate(new UserPage());
         }
+
     }
 }

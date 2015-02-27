@@ -37,8 +37,8 @@ namespace MonsterSpell.UI
             var characters = GameEngine.Player.Characters.Select(x => CreateListItem(x));
             this.Characters = new ObservableCollection<CharacterListItem>(characters);
             CharactersListBox.ItemsSource = this.Characters;
-
             GameEngine.Player.OnCharacterAdded += character => EditList(character, true);
+
             GameEngine.Player.OnCharacterRemoved += character => EditList(character, false);
         }
 
@@ -90,8 +90,6 @@ namespace MonsterSpell.UI
         private void OpenCharacterCreationPage(object sender, System.Windows.RoutedEventArgs e)
         {
             (Application.Current.MainWindow as NavigationWindow).Navigate(new CharacterCreationPage());
-            var random = new Random();
-            GameEngine.Player.AddCharacter(new Warrior("", random.Next(0, int.MaxValue).ToString()));
         }
 
         private void OnCharactersListBoxSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
