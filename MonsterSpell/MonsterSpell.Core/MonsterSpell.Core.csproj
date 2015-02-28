@@ -45,6 +45,8 @@
     <Compile Include="Characters\ICharacter.cs" />
     <Compile Include="Characters\IComputerCharacter.cs" />
     <Compile Include="Characters\ISpell.cs" />
+    <Compile Include="Characters\Mage\Spells\BrutalAxe.cs" />
+    <Compile Include="Characters\Mage\Mage.cs" />
     <Compile Include="Characters\Warrior\Spells\BrutalAxe.cs" />
     <Compile Include="Characters\Warrior\Warrior.cs" />
     <Compile Include="GameElement.cs" />

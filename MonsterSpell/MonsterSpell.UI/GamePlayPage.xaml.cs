@@ -97,7 +97,7 @@ namespace MonsterSpell.UI
             switch (character.Type)
             {
                 case CharacterType.Mage:
-                    this.characterImage.Source = new BitmapImage(new Uri(path + @"\..\..\Images\class-warrior.png"));
+                    this.characterImage.Source = new BitmapImage(new Uri(path + @"\..\..\Images\Mage.png"));
                     break;
                 case CharacterType.Warrior:
                     this.characterImage.Source = new BitmapImage(new Uri(path + @"\..\..\Images\class-warrior.png"));

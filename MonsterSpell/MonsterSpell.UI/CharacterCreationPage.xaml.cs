@@ -16,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MonsterSpell.Core.Characters.Warrior;
+using MonsterSpell.Core.Characters;
+using MonsterSpell.Core.Characters.Mage;
 
 namespace MonsterSpell.UI
 {
@@ -24,6 +26,8 @@ namespace MonsterSpell.UI
     /// </summary>
     public partial class CharacterCreationPage : Page
     {
+        public CharacterType createCharacterOfType { get; set; }
+
         public CharacterCreationPage()
         {
             InitializeComponent();
@@ -32,9 +36,28 @@ namespace MonsterSpell.UI
         private void OnCreateCharacterClicked(object sender, RoutedEventArgs e)
         {
             var random = new Random();
-            GameEngine.Player.AddCharacter(new Warrior(this.UserNameInput.Text, random.Next(0, int.MaxValue).ToString()));
+            ICharacter newCharacter;
+            if (this.createCharacterOfType == CharacterType.Warrior)
+            {
+                newCharacter = new Mage(this.UserNameInput.Text, random.Next(0, int.MaxValue).ToString());
+            }
+            else
+            {
+                newCharacter = new Warrior(this.UserNameInput.Text, random.Next(0, int.MaxValue).ToString());
+            }
+            GameEngine.Player.AddCharacter(newCharacter);
             (Application.Current.MainWindow as NavigationWindow).Navigate(new UserPage());
         }
 
+        private void Button_Click_Mage(object sender, RoutedEventArgs e)
+        {
+            this.createCharacterOfType = CharacterType.Mage;
+        }
+
+        private void Button_Click_Warrior(object sender, RoutedEventArgs e)
+        {
+            this.createCharacterOfType = CharacterType.Warrior;
+        }
+        
     }
 }
